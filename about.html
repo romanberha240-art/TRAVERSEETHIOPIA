@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Traverse Ethiopia | Expert Local Guides</title>
+    <meta name="description" content="Learn about Traverse Ethiopia Tours. Expert local guides with 15+ years of experience in birding and cultural tours.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        .page-hero {
+            background: linear-gradient(135deg, var(--primary-dark), var(--text));
+            color: var(--white);
+            padding: 140px 0 60px;
+            text-align: center;
+        }
+        .page-hero h1 { color: var(--white); }
+        .page-hero h1 span { color: var(--secondary); }
+        .page-hero p { max-width: 600px; margin: 0 auto; opacity: 0.9; }
+        
+        .about-content-page {
+            padding: 60px 0;
+            background: var(--white);
+        }
+        
+        .about-story {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        .about-story img {
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        .value-card {
+            text-align: center;
+            padding: 30px 20px;
+            background: var(--cream);
+            border-radius: var(--radius);
+            transition: var(--transition);
+        }
+        .value-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+        }
+        .value-card i {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 16px;
+        }
+        .value-card h4 { margin-bottom: 8px; }
+        .value-card p { color: var(--text-light); font-size: 0.95rem; }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        .team-member {
+            text-align: center;
+            background: var(--cream);
+            padding: 30px 20px;
+            border-radius: var(--radius);
+            transition: var(--transition);
+        }
+        .team-member:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+        }
+        .team-member img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 16px;
+            border: 4px solid var(--secondary);
+        }
+        .team-member h4 { margin-bottom: 4px; }
+        .team-member .role { color: var(--secondary); font-weight: 600; font-size: 0.9rem; }
+        .team-member p { color: var(--text-light); margin-top: 8px; font-size: 0.95rem; }
+        
+        .cta-about {
+            background: var(--primary);
+            color: var(--white);
+            padding: 60px 0;
+            text-align: center;
+            margin-top: 40px;
+        }
+        .cta-about h2 { color: var(--white); }
+        .cta-about p { opacity: 0.9; max-width: 600px; margin: 0 auto 30px; }
+        
+        .stats-about {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin: 40px 0;
+        }
+        .stat-about {
+            text-align: center;
+            padding: 20px;
+            background: var(--cream);
+            border-radius: var(--radius);
+        }
+        .stat-about .number {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+        }
+        .stat-about .label {
+            color: var(--text-light);
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- ===== HEADER ===== -->
+    <header class="header" id="header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="https://via.placeholder.com/50x50/7B2C2C/FFFFFF?text=TE" alt="Traverse Ethiopia Logo">
+                Traverse <span>Ethiopia</span>
+            </a>
+            
+            <nav class="nav-menu" id="navMenu">
+                <a href="index.html">Home</a>
+                <a href="birding-tours.html">Birding Tours</a>
+                <a href="cultural-tours.html">Cultural Tours</a>
+                <a href="destinations.html">Destinations</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="about.html" class="active">About</a>
+                <a href="contact.html">Contact</a>
+                
+                <div class="lang-switcher">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="am">አማ</button>
+                </div>
+            </nav>
+            
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+    
+    <!-- ===== PAGE HERO ===== -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>About <span>Traverse Ethiopia</span></h1>
+            <p>Your trusted partner for authentic birding and cultural experiences in the heart of Ethiopia</p>
+        </div>
+    </section>
+    
+    <!-- ===== ABOUT CONTENT ===== -->
+    <section class="about-content-page">
+        <div class="container">
+            <!-- Story -->
+            <div class="about-story">
+                <div>
+                    <h2>Our <span style="color: var(--secondary);">Story</span></h2>
+                    <p style="font-size: 1.1rem; color: var(--text-light); margin-bottom: 20px;">
+                        Traverse Ethiopia Tours was born from a deep love for Ethiopia's incredible biodiversity and rich cultural heritage. Founded in 2010 by a team of passionate local guides, we've spent over 15 years sharing the wonders of our homeland with travelers from around the world.
+                    </p>
+                    <p style="color: var(--text-light);">
+                        What started as a small group of birding enthusiasts has grown into a full-service tour company known for our expertise, professionalism, and genuine care for our guests. We believe in sustainable tourism that benefits local communities and preserves Ethiopia's natural and cultural treasures for future generations.
+                    </p>
+                </div>
+                <div>
+                    <img src="https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0?w=800&q=80" alt="Ethiopian Guide Team">
+                </div>
+            </div>
+            
+            <!-- Stats -->
+            <div class="stats-about">
+                <div class="stat-about">
+                    <span class="number">15+</span>
+                    <span class="label">Years Experience</span>
+                </div>
+                <div class="stat-about">
+                    <span class="number">2,500+</span>
+                    <span class="label">Happy Travelers</span>
+                </div>
+                <div class="stat-about">
+                    <span class="number">50+</span>
+                    <span class="label">Tour Packages</span>
+                </div>
+                <div class="stat-about">
+                    <span class="number">100%</span>
+                    <span class="label">Local Guides</span>
+                </div>
+            </div>
+            
+            <!-- Values -->
+            <h2 style="text-align: center; margin-top: 40px;">Our <span style="color: var(--secondary);">Values</span></h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <i class="fas fa-heart"></i>
+                    <h4>Authenticity</h4>
+                    <p>We provide genuine experiences that connect you with Ethiopia's real culture and nature.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-users"></i>
+                    <h4>Community</h4>
+                    <p>We work closely with local communities and ensure tourism benefits everyone involved.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-leaf"></i>
+                    <h4>Sustainability</h4>
+                    <p>We practice responsible tourism that protects Ethiopia's environment and heritage.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-star"></i>
+                    <h4>Excellence</h4>
+                    <p>We go above and beyond to ensure every traveler has an unforgettable experience.</p>
+                </div>
+            </div>
+            
+            <!-- Team -->
+            <h2 style="text-align: center; margin-top: 40px;">Meet Our <span style="color: var(--secondary);">Team</span></h2>
+            <p style="text-align: center; max-width: 600px; margin: 0 auto 20px; color: var(--text-light);">
+                Our expert local guides are the heart of Traverse Ethiopia. Each brings years of experience, deep knowledge, and genuine passion.
+            </p>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="https://i.pravatar.cc/200?img=1" alt="Guide Name">
+                    <h4>Abebe Kebede</h4>
+                    <div class="role">Senior Birding Guide</div>
+                    <p>15 years of experience. Expert in all 31 endemic bird species. Fluent in English and French.</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://i.pravatar.cc/200?img=2" alt="Guide Name">
+                    <h4>Meron Tsegaye</h4>
+                    <div class="role">Cultural Tour Specialist</div>
+                    <p>Expert on Omo Valley tribes and Ethiopian history. PhD in Anthropology.</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://i.pravatar.cc/200?img=3" alt="Guide Name">
+                    <h4>Dawit Assefa</h4>
+                    <div class="role">Operations Manager</div>
+                    <p>Over 12 years managing tours across Ethiopia. Ensures every detail is perfect.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ===== CTA ===== -->
+    <section class="cta-about">
+        <div class="container">
+            <h2>Ready to Explore Ethiopia?</h2>
+            <p>Let us create the perfect itinerary for your Ethiopian adventure. Contact us today to start planning.</p>
+            <a href="contact.html" class="btn btn-secondary btn-large">Plan Your Tour Now</a>
+        </div>
+    </section>
+    
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3 style="color: var(--secondary);">Traverse Ethiopia</h3>
+                    <p>Traverse Ethiopia offers authentic birding and cultural tours led by expert local guides.</p>
+                    <div style="display: flex; gap: 12px; margin-top: 16px;">
+                        <a href="https://wa.me/251924012897" target="_blank" style="color: #25D366; font-size: 1.5rem;"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.facebook.com" target="_blank" style="color: var(--cream); font-size: 1.5rem;"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com" target="_blank" style="color: var(--cream); font-size: 1.5rem;"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com" target="_blank" style="color: var(--cream); font-size: 1.5rem;"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4>Our Tours</h4>
+                    <ul class="footer-links">
+                        <li><a href="birding-tours.html">Birding Tours</a></li>
+                        <li><a href="cultural-tours.html">Cultural Tours</a></li>
+                        <li><a href="destinations.html">Destinations</a></li>
+                        <li><a href="itineraries.html">Itineraries</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4>Destinations</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Bale Mountains</a></li>
+                        <li><a href="#">Omo Valley</a></li>
+                        <li><a href="#">Lalibela</a></li>
+                        <li><a href="#">Danakil</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="tel:+251924012897">+251 924 012 897</a></li>
+                        <li><a href="tel:+251911626671">+251 911 626 671</a></li>
+                        <li><a href="mailto:traverseethiopia@gmail.com">traverseethiopia@gmail.com</a></li>
+                        <li><a href="contact.html">Contact Form</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Traverse Ethiopia Tours. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- ===== WHATSAPP FLOAT ===== -->
+    <a href="https://wa.me/251924012897" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    
+    <script src="js/main.js"></script>
+</body>
+</html>
