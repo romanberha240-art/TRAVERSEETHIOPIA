@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | Traverse Ethiopia Tours</title>
+    <meta name="description" content="Explore our photo gallery of Ethiopia's birds, cultures, and landscapes from Traverse Ethiopia tours.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        .page-hero {
+            background: linear-gradient(135deg, var(--primary-dark), var(--text));
+            color: var(--white);
+            padding: 140px 0 60px;
+            text-align: center;
+        }
+        .page-hero h1 { color: var(--white); }
+        .page-hero h1 span { color: var(--secondary); }
+        .page-hero p { max-width: 600px; margin: 0 auto; opacity: 0.9; }
+        
+        .gallery-page {
+            padding: 60px 0;
+            background: var(--cream);
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--radius);
+            cursor: pointer;
+            aspect-ratio: 1;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .gallery-item .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            color: var(--white);
+            opacity: 0;
+            transition: var(--transition);
+            transform: translateY(20px);
+        }
+        
+        .gallery-item:hover .overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .gallery-item .overlay h4 {
+            color: var(--white);
+            font-size: 1rem;
+        }
+        
+        .gallery-item .overlay p {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+        
+        .gallery-filter {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        
+        .gallery-filter button {
+            padding: 8px 24px;
+            border-radius: 30px;
+            border: 2px solid var(--cream-dark);
+            background: var(--white);
+            cursor: pointer;
+            font-weight: 500;
+            transition: var(--transition);
+            font-family: var(--font-body);
+        }
+        
+        .gallery-filter button:hover,
+        .gallery-filter button.active {
+            background: var(--secondary);
+            border-color: var(--secondary);
+            color: var(--text);
+        }
+        
+        .gallery-item {
+            display: block;
+        }
+        .gallery-item.hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- ===== HEADER ===== -->
+    <header class="header" id="header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="https://via.placeholder.com/50x50/7B2C2C/FFFFFF?text=TE" alt="Traverse Ethiopia Logo">
+                Traverse <span>Ethiopia</span>
+            </a>
+            
+            <nav class="nav-menu" id="navMenu">
+                <a href="index.html">Home</a>
+                <a href="birding-tours.html">Birding Tours</a>
+                <a href="cultural-tours.html">Cultural Tours</a>
+                <a href="destinations.html">Destinations</a>
+                <a href="gallery.html" class="active">Gallery</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                
+                <div class="lang-switcher">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="am">አማ</button>
+                </div>
+            </nav>
+            
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+    
+    <!-- ===== PAGE HERO ===== -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Our <span>Gallery</span></h1>
+            <p>A visual journey through Ethiopia's incredible birds, vibrant cultures, and breathtaking landscapes</p>
+        </div>
+    </section>
+    
+    <!-- ===== GALLERY ===== -->
+    <section class="gallery-page">
+        <div class="container">
+            <!-- Filters -->
+            <div class="gallery-filter">
+                <button class="active" data-filter="all">All Photos</button>
+                <button data-filter="birds">Birds</button>
+                <button data-filter="culture">Culture</button>
+                <button data-filter="landscape">Landscapes</button>
+                <button data-filter="people">People</button>
+            </div>
+            
+            <!-- Gallery Grid -->
+            <div class="gallery-grid">
+                <!-- Birds -->
+                <div class="gallery-item" data-category="birds">
+                    <img src="https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0?w=600&q=80" alt="Ethiopian Bird">
+                    <div class="overlay">
+                        <h4>Endemic Bird Species</h4>
+                        <p>Bale Mountains, Ethiopia</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="birds">
+                    <img src="https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0?w=600&q=80" alt="African Fish Eagle">
+                    <div class="overlay">
+                        <h4>African Fish Eagle</h4>
+                        <p>Lake Ziway, Rift Valley</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="birds">
+                    <img src="https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0?w=600&q=80" alt="Flamingos">
+                    <div class="overlay">
+                        <h4>Greater Flamingos</h4>
+                        <p>Lake Abijata, Rift Valley</p>
+                    </div>
+                </div>
+                
+                <!-- Culture -->
+                <div class="gallery-item" data-category="culture">
+                    <img src="https://images.unsplash.com/photo-1533106418989-88406c7cc8ca?w=600&q=80" alt="Omo Valley Tribes">
+                    <div class="overlay">
+                        <h4>Hamer Tribe Ceremony</h4>
+                        <p>Omo Valley, Ethiopia</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="culture">
+                    <img src="https://images.unsplash.com/photo-1533106418989-88406c7cc8ca?w=600&q=80" alt="Mursi Tribe">
+                    <div class="overlay">
+                        <h4>Mursi Tribe Women</h4>
+                        <p>Omo Valley, Ethiopia</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="culture">
+                    <img src="https://images.unsplash.com/photo-1533106418989-88406c7cc8ca?w=600&q=80" alt="Ethiopian Coffee Ceremony">
+                    <div class="overlay">
+                        <h4>Traditional Coffee Ceremony</h4>
+                        <p>Addis Ababa, Ethiopia</p>
+                    </div>
+                </div>
+                
+                <!-- Landscapes -->
+                <div class="gallery-item" data-category="landscape">
+                    <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=600&q=80" alt="Simien Mountains">
+                    <div class="overlay">
+                        <h4>Simien Mountains</h4>
+                        <p>Northern Ethiopia</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="landscape">
+                    <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=600&q=80" alt="Danakil Depression">
+                    <div class="overlay">
+                        <h4>Danakil Depression</h4>
+                        <p>Lowest point on Earth, Ethiopia</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="landscape">
+                    <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=600&q=80" alt="Lalibela Churches">
+                    <div class="overlay">
+                        <h4>Lalibela Rock Churches</h4>
+                        <p>Lalibela, Ethiopia</p>
+                    </div>
+                </div>
+                
+                <!-- People -->
+                <div class="gallery-item" data-category="people">
+                    <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=600&q=80" alt="Ethiopian People">
+                    <div class="overlay">
+                        <h4>Local Community</h4>
+                        <p>Rift Valley, Ethiopia</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="people">
+                    <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=600&q=80" alt="Ethiopian Children">
+                    <div class="overlay">
+                        <h4>Children of Ethiopia</h4>
+                        <p>Omo Valley, Ethiopia</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="people">
+                    <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=600&q=80" alt="Ethiopian Markets">
+                    <div class="overlay">
+                        <h4>Traditional Market</h4>
+                        <p>Konso, Ethiopia</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3 style="color: var(--secondary);">Traverse Ethiopia</h3>
+                    <p>Traverse Ethiopia offers authentic birding and cultural tours led by expert local guides.</p>
+                    <div style="display: flex; gap: 12px; margin-top: 16px;">
+                        <a href="https://wa.me/251924012897" target="_blank" style="color: #25D366; font-size: 1.5rem;"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.facebook.com" target="_blank" style="color: var(--cream); font-size: 1.5rem;"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com" target="_blank" style="color: var(--cream); font-size: 1.5rem;"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com" target="_blank" style="color: var(--cream); font-size: 1.5rem;"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4>Our Tours</h4>
+                    <ul class="footer-links">
+                        <li><a href="birding-tours.html">Birding Tours</a></li>
+                        <li><a href="cultural-tours.html">Cultural Tours</a></li>
+                        <li><a href="destinations.html">Destinations</a></li>
+                        <li><a href="itineraries.html">Itineraries</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4>Destinations</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Bale Mountains</a></li>
+                        <li><a href="#">Omo Valley</a></li>
+                        <li><a href="#">Lalibela</a></li>
+                        <li><a href="#">Danakil</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="tel:+251924012897">+251 924 012 897</a></li>
+                        <li><a href="tel:+251911626671">+251 911 626 671</a></li>
+                        <li><a href="mailto:traverseethiopia@gmail.com">traverseethiopia@gmail.com</a></li>
+                        <li><a href="contact.html">Contact Form</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Traverse Ethiopia Tours. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- ===== WHATSAPP FLOAT ===== -->
+    <a href="https://wa.me/251924012897" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    
+    <script src="js/main.js"></script>
+    
+    <!-- Gallery Filter -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterBtns = document.querySelectorAll('.gallery-filter button');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const filter = this.dataset.filter;
+                    
+                    galleryItems.forEach(item => {
+                        if (filter === 'all' || item.dataset.category === filter) {
+                            item.classList.remove('hidden');
+                        } else {
+                            item.classList.add('hidden');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
