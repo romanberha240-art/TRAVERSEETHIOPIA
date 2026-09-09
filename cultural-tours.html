@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cultural Tours in Ethiopia | Omo Valley Tribes | Traverse Ethiopia</title>
+    <meta name="description" content="Authentic cultural tours in Ethiopia. Visit Omo Valley tribes, Konso, Hamer, Mursi, and experience ancient traditions.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        .page-hero {
+            background: linear-gradient(135deg, var(--primary-dark), var(--text));
+            color: var(--white);
+            padding: 140px 0 60px;
+            text-align: center;
+        }
+        .page-hero h1 { color: var(--white); }
+        .page-hero h1 span { color: var(--secondary); }
+        .page-hero p { max-width: 600px; margin: 0 auto; opacity: 0.9; }
+        
+        .tours-grid-page {
+            padding: 60px 0;
+            background: var(--cream);
+        }
+        .tour-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 30px;
+        }
+        
+        .cultural-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+        .highlight-item {
+            text-align: center;
+            padding: 20px;
+            background: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+        .highlight-item i {
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+        .highlight-item h4 { font-size: 1rem; }
+        .highlight-item p { font-size: 0.85rem; color: var(--text-light); }
+        
+        .tribe-section {
+            background: var(--white);
+            padding: 40px;
+            border-radius: var(--radius);
+            margin-top: 40px;
+            box-shadow: var(--shadow);
+        }
+        .tribe-section h3 { margin-bottom: 10px; }
+        .tribe-section .tribe-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .tribe-card {
+            text-align: center;
+            padding: 20px;
+            background: var(--cream);
+            border-radius: 8px;
+        }
+        .tribe-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 10px;
+            border: 3px solid var(--secondary);
+        }
+        .tribe-card h4 { margin-bottom: 4px; }
+        .tribe-card p { font-size: 0.85rem; color: var(--text-light); }
+    </style>
+</head>
+<body>
+    
+    <!-- ===== HEADER ===== -->
+    <header class="header" id="header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="https://via.placeholder.com/50x50/7B2C2C/FFFFFF?text=TE" alt="Traverse Ethiopia Logo">
+                Traverse <span>Ethiopia</span>
+            </a>
+            
+            <nav class="nav-menu" id="navMenu">
+                <a href="index.html">Home</a>
+                <a href="birding-tours.html">Birding Tours</a>
+                <a href="cultural-tours.html" class="active">Cultural Tours</a>
+                <a href="destinations.html">Destinations</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                
+                <div class="lang-switcher">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="am">አማ</button>
+                </div>
+            </nav>
+            
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+    
+    <!-- ===== PAGE HERO ===== -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Cultural <span>Tours</span></h1>
+            <p>Immerse yourself in Ethiopia's rich cultural heritage. Meet ancient tribes, experience traditions, and discover the cradle of humanity.</p>
+        </div>
+    </section>
+    
+    <!-- ===== TOURS ===== -->
+    <section class="tours-grid-page">
+        <div class="container">
+            <!-- Cultural Highlights -->
+            <div class="cultural-highlights">
+                <div class="highlight-item">
+                    <i class="fas fa-users"></i>
+                    <h4>80+ Tribes</h4>
+                    <p>Explore Ethiopia's diverse ethnic groups</p>
+                </div>
+                <div class="highlight-item">
+                    <i class="fas fa-music"></i>
+                    <h4>Ancient Traditions</h4>
+                    <p>Ceremonies, music, and dance</p>
+                </div>
+                <div class="highlight-item">
+                    <i class="fas fa-church"></i>
+                    <h4>Historic Churches</h4>
+                    <p>Lalibela, Axum, Gondar</p>
+                </div>
+                <div class="highlight-item">
+                    <i class="fas fa-handshake"></i>
+                    <h4>Respectful Tourism</h4>
+                    <p>Cultural sensitivity and community benefits</p>
+                </div>
+            </div>
+            
+            <div class="tour-grid">
+                <!-- Omo Valley Tour -->
+                <div class="tour-card">
+                    <div class="tour-card-image">
+                        <img src="https://images.unsplash.com/photo-1533106418989-88406c7cc8ca?w=600&q=80" alt="Omo Valley Tribes">
+                        <span class="tour-card-badge">Featured</span>
+                    </div>
+                    <div class="tour-card-content">
+                        <h3>Omo Valley Tribal Experience</h3>
+                        <div class="meta">
+                            <span><i class="fas fa-clock"></i> 10 Days</span>
+                            <span><i class="fas fa-users"></i> 4-10 People</span>
+                        </div>
+                        <p>Visit the Hamer, Mursi, Konso, and Dassanech tribes. Experience the famous bull-jumping ceremony and vibrant markets.</p>
+                        <div class="tour-card-footer">
+                            <span class="price">$3,200 <small>pp</small></span>
+                            <a href="#" class="btn btn-primary btn-small">View Itinerary</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Northern Circuit -->
+                <div class="tour-card">
+                    <div class="tour-card-image">
+                        <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=600&q=80" alt="Lalibela Churches">
+                        <span class="tour-card-badge">Historic</span>
+                    </div>
+                    <div class="tour-card-content">
+                        <h3>Northern Historic Circuit</h3>
+                        <div class="meta">
+                            <span><i class="fas fa-clock"></i> 12 Days</span>
+                            <span><i class="fas fa-users"></i> 4-12 People</span>
+                        </div>
+                        <p>Explore Lalibela's rock-hewn churches, Axum's ancient obelisks, Gondar's castles, and the Simien Mountains.</p>
+                        <div class="tour-card-footer">
+                            <span class="price">$3,800 <small>pp</small></span>
+                            <a href="#" class="btn btn-primary btn-small">View Itinerary</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Cultural Combo -->
+                <div class="tour-card">
+                    <div class="tour-card-image">
+                        <img src="https://images.unsplash.com/photo-1533106418989-88406c7cc8ca?w=600&q=80" alt="Ethiopian Culture">
+                        <span class="tour-card-badge">Ultimate</span>
+                    </div>
+                    <div class="tour-card-content">
+                        <h3>Ultimate Cultural Immersion</h3>
+                        <div class="meta">
+                            <span><i class="fas fa-clock"></i> 16 Days</span>
+                            <span><i class="fas fa-users"></i> 4-8 People</span>
+                        </div>
+                        <p>The complete cultural journey combining Omo Valley tribes with the northern historic sites. The ultimate Ethiopian experience.</p>
+                        <div class="tour-card-footer">
+                            <span class="price">$5,200 <small>pp</small></span>
+                            <a href="#" class="btn btn-primary btn-small">View Itinerary</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tribes Info -->
+            <div class="tribe-section">
+                <h3>Tribes of the <span style="color: var(--secondary);">Omo Valley</span></h3>
+                <p style="color: var(--text-light); margin-bottom: 20px;">The Omo Valley is home to some of the most fascinating indigenous tribes in Africa, each with unique traditions and ways of life.</p>
+                
+                <div class="tribe-grid">
+                    <div class="tribe-card">
+                        <img src="https://i.pravatar.cc/100?img=20" alt="Hamer Tribe">
+                        <h4>Hamer</h4>
+                        <p>Known for bull-jumping ceremonies and elaborate body adornment</p>
+                    </div>
+                    <div class="tribe-card">
+                        <img src="https://i.pravatar.cc/100?img=21" alt="Mursi Tribe">
+                        <h4>Mursi</h4>
+                        <p>Famous for lip plates and scarification traditions</p>
+                    </div>
+                    <div class="tribe-card">
+                        <img src="https://i.pravatar.cc/100?img=22" alt="Konso Tribe">
+                        <h4>Konso</h4>
+                        <p>UNESCO World Heritage site with unique agricultural terraces</p>
+                    </div>
+                    <div class="tribe-card">
+                        <img src="https://i.pravatar.cc/100?img=23" alt="Dassanech Tribe">
+                        <h4>Dassanech</h4>
+                        <p>Pastoralists living along the Omo River</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3 style="color: var(--secondary);">Traverse Ethiopia</h3>
+                    <p>Traverse Ethiopia offers authentic birding and cultural tours led by expert local guides.</p>
+                    <div style="display: flex; gap: 12px; margin-top: 16px;">
+                        <a href="https://wa.me/251924012897" target="_blank" style="color: #25D366; font-size: 1.5rem;"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.facebook.com" target="_blank" style="color: var(--cream); font-size: 1.5rem;"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com" target="_blank" style="color: var(--cream); font-size: 1.5rem;"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com" target="_blank" style="color: var(--cream); font-size: 1.5rem;"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4>Our Tours</h4>
+                    <ul class="footer-links">
+                        <li><a href="birding-tours.html">Birding Tours</a></li>
+                        <li><a href="cultural-tours.html">Cultural Tours</a></li>
+                        <li><a href="destinations.html">Destinations</a></li>
+                        <li><a href="itineraries.html">Itineraries</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4>Destinations</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Bale Mountains</a></li>
+                        <li><a href="#">Omo Valley</a></li>
+                        <li><a href="#">Lalibela</a></li>
+                        <li><a href="#">Danakil</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="tel:+251924012897">+251 924 012 897</a></li>
+                        <li><a href="tel:+251911626671">+251 911 626 671</a></li>
+                        <li><a href="mailto:traverseethiopia@gmail.com">traverseethiopia@gmail.com</a></li>
+                        <li><a href="contact.html">Contact Form</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Traverse Ethiopia Tours. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- ===== WHATSAPP FLOAT ===== -->
+    <a href="https://wa.me/251924012897" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    
+    <script src="js/main.js"></script>
+</body>
+</html>
