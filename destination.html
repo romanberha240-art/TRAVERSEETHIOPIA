@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destinations in Ethiopia | Traverse Ethiopia Tours</title>
+    <meta name="description" content="Explore Ethiopia's top destinations: Bale Mountains, Omo Valley, Lalibela, Danakil Depression, Simien Mountains and more.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        .page-hero {
+            background: linear-gradient(135deg, var(--primary-dark), var(--text));
+            color: var(--white);
+            padding: 140px 0 60px;
+            text-align: center;
+        }
+        .page-hero h1 { color: var(--white); }
+        .page-hero h1 span { color: var(--secondary); }
+        .page-hero p { max-width: 600px; margin: 0 auto; opacity: 0.9; }
+        
+        .destinations-page {
+            padding: 60px 0;
+            background: var(--cream);
+        }
+        
+        .destination-featured {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .destination-featured-card {
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+            height: 400px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        
+        .destination-featured-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .destination-featured-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .destination-featured-card .content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 30px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: var(--white);
+        }
+        
+        .destination-featured-card .content h3 {
+            color: var(--white);
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+        }
+        
+        .destination-featured-card .content p {
+            opacity: 0.9;
+            margin-bottom: 12px;
+        }
+        
+        .destination-featured-card .content .badge {
+            display: inline-block;
+            background: var(--secondary);
+            color: var(--text);
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .destinations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .destination-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .destination-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .destination-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .destination-card .info {
+            padding: 24px;
+        }
+        
+        .destination-card .info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 6px;
+        }
+        
+        .destination-card .info .location {
+            color: var(--secondary);
+            font-weight: 500;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+        
+        .destination-card .info .location i {
+            margin-right: 6px;
+        }
+        
+        .destination-card .info p {
+            color: var(--text-light);
+            margin-bottom: 14px;
+            font-size: 0.95rem;
+        }
+        
+        .destination-card .info .highlights {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+        
+        .destination-card .info .highlights span {
+            background: var(--cream);
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .destination-card .info .btn {
+            width: 100%;
+            text-align: center;
+        }
+        
+        .region-section {
+            margin-top: 50px;
+            padding-top: 40px;
+            border-top: 2px solid var(--cream-dark);
+        }
+        
+        .region-section h2 {
+            margin-bottom: 30px;
+        }
+        
+        .region-section h2 span {
+            color: var(--secondary);
+        }
+        
+        .map-container {
+            background: var(--white);
+            padding: 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 40px;
+        }
+        
+        .map-container img {
+            width: 100%;
+            border-radius: 8px;
+        }
+        
+        .quick-destinations {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 15px;
+            margin: 30px 0;
+        }
+        
+        .quick-dest-item {
+            text-align: center;
+            padding: 20px 10px;
+            background: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        
+        .quick-dest-item:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .quick-dest-item i {
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-bottom: 8px;
+            display: block;
+        }
+        
+        .quick-dest-item h4 {
+            font-size: 0.95rem;
+            margin-bottom: 2px;
+        }
+        
+        .quick-dest-item p {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+        
+        @media (max-width: 768px) {
+            .destination-featured {
+                grid-template-columns: 1fr;
+            }
+            .destination-featured-card {
+                height: 280px;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- ===== HEADER ===== -->
+    <header class="header" id="header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="https://via.placeholder.com/50x50/7B2C2C/FFFFFF?text=TE" alt="Traverse Ethiopia Logo">
+                Traverse <span>Ethiopia</span>
+            </a>
+            
+            <nav class="nav-menu" id="navMenu">
+                <a href="index.html">Home</a>
+                <a href="birding-tours.html">Birding Tours</a>
+                <a href="cultural-tours.html">Cultural Tours</a>
+                <a href="destinations.html" class="active">Destinations</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                
+                <div class="lang-switcher">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="am">አማ</button>
+                </div>
+            </nav>
+            
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+    
+    <!-- ===== PAGE HERO ===== -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Explore <span>Destinations</span></h1>
+            <p>From the soaring peaks of the Simien Mountains to the ancient rock churches of Lalibela, discover Ethiopia's diverse landscapes</p>
+        </div>
+    </section>
+    
+    <!-- ===== DESTINATIONS ===== -->
+    <section class="destinations-page">
+        <div class="container">
+            
+            <!-- Quick Navigation -->
+            <div class="quick-destinations">
+                <div class="quick-dest-item" onclick="scrollToDestination('north')">
+                    <i class="fas fa-mountain"></i>
+                    <h4>Northern</h4>
+                    <p>Historic Route</p>
+                </div>
+                <div class="quick-dest-item" onclick="scrollToDestination('south')">
+                    <i class="fas fa-users"></i>
+                    <h4>Southern</h4>
+                    <p>Omo Valley</p>
+                </div>
+                <div class="quick-dest-item" onclick="scrollToDestination('east')">
+                    <i class="fas fa-sun"></i>
+                    <h4>Eastern</h4>
+                    <p>Danakil, Awash</p>
+                </div>
+                <div class="quick-dest-item" onclick="scrollToDestination('central')">
+                    <i class="fas fa-tree"></i>
+                    <h4>Central</h4>
+                    <p>Bale, Rift Valley</p>
+                </div>
+            </div>
+            
+            <!-- Featured Destinations -->
+            <div class="destination-featured">
+                <div class="destination-featured-card">
+                    <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800&q=80" alt="Lalibela Rock Churches">
+                    <div class="content">
+                        <span class="badge">UNESCO World Heritage</span>
+                        <h3>Lalibela</h3>
+                        <p>11 remarkable rock-hewn churches carved from a single stone</p>
+                        <a href="#" class="btn btn-secondary btn-small">Explore</a>
+                    </div>
+                </div>
+                <div class="destination-featured-card">
+                    <img src="https://images.unsplash.com/photo-1533106418989-88406c7cc8ca?w=800&q=80" alt="Omo Valley">
+                    <div class="content">
+                        <span class="badge">Cultural Heartland</span>
+                        <h3>Omo Valley</h3>
+                        <p>Home to 80+ indigenous tribes with ancient traditions</p>
+                        <a href="#" class="btn btn-secondary btn-small">Explore</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- ===== NORTHERN REGION ===== -->
+            <div class="region-section" id="north">
+                <h2><span>Northern</span> Ethiopia</h2>
+                <p style="color: var(--text-light); margin-bottom: 20px;">The historic circuit - home to Ethiopia's ancient kingdoms, rock-hewn churches, and dramatic mountain landscapes.</p>
+                
+                <div class="destinations-grid">
+                    <!-- Lalibela -->
+                    <div class="destination-card">
+                        <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=600&q=80" alt="Lalibela">
+                        <div class="info">
+                            <h3>Lalibela</h3>
+                            <div class="location"><i class="fas fa-map-marker-alt"></i> Amhara Region</div>
+                            <p>Famous for its 11 monolithic rock-hewn churches, often called the "Eighth Wonder of the World."</p>
+                            <div class="highlights">
+                                <span>Rock Churches</span>
+                                <span>UNESCO</span>
+                                <span>Pilgrimage</span>
+                            </div>
+                            <a href="#" class="btn btn-primary btn-small">View Tours</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Gondar -->
+                    <div class="destination-card">
+                        <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=600&q=80" alt="Gondar">
+                        <div class="info">
+                            <h3>Gondar</h3>
+                            <div class="location"><i class="fas fa-map-marker-alt"></i> Amhara Region</div>
+                            <p>The "Camelot of Africa" - famous for its 17th-century castles and the Debre Berhan Selassie church.</p>
+                            <div class="highlights">
+                                <span>Castles</span>
+                                <span>History</span>
+                                <span>Architecture</span>
+                            </div>
+                            <a href="#" class="btn btn-primary btn-small">View Tours</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Axum -->
+                    <div class="destination-card">
+                        <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=600&q=80" alt="Axum">
+                        <div class="info">
+                            <h3>Axum</h3>
+                            <div class="location"><i class="fas fa-map-marker-alt"></i> Tigray Region</div>
+                            <p>Ancient capital of the Axumite Empire, home to towering obelisks and the legendary Ark of the Covenant.</p>
+                            <div class="highlights">
+                                <span>Obelisks</span>
+                                <span>Ancient Empire</span>
+                                <span>Ark</span>
+                            </div>
+                            <a href="#" class="btn btn-primary btn-small">View Tours</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Simien Mountains -->
+                    <div class="destination-card">
+                        <img src="https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0?w=600&q=80" alt="Simien Mountains">
+                        <div class="info">
+                            <h3>Simien Mountains</h3>
+                            <div class="location"><i class="fas fa-map-marker-alt"></i> Amhara Region</div>
+                            <p>UNESCO World Heritage site with dramatic jagged peaks, deep valleys, and endemic wildlife.</p>
+                            <div class="highlights">
+                                <span>Trekking</span>
+                                <span>UNESCO</span>
+                                <span>Wildlife</span>
+                            </div>
+                            <a href="#" class="btn btn-primary btn-small">View Tours</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- ===== SOUTHERN REGION ===== -->
+            <div class="region-section" id="south">
+                <h2><span>Southern</span> Ethiopia</h2>
+                <p style="color: var(--text-light); margin-bottom: 20px;">The cultural heartland - home to the Omo Valley tribes, the Great Rift Valley, and diverse ecosystems.</p>
+                
+                <div class="destinations-grid">
+                    <!-- Omo Valley -->
+                    <div class="destination-card">
+                        <img src="https://images.unsplash.com/photo-1533106418989-88406c7cc8ca?w=600&q=80" alt="Omo Valley">
+                        <div class="info">
+                            <h3>Omo Valley</h3>
+                            <div class="location"><i class="fas fa-map-marker-alt"></i> Southern Nations</div>
+                            <p>One of the most culturally diverse places on Earth. Home to the Hamer, Mursi, Konso, and many other tribes.</p>
+                            <div class="highlights">
+                                <span>Tribes</span>
+                                <span>Culture</span>
+                                <span>Ceremonies</span>
+                            </div>
+                            <a href="#" class="btn btn-primary btn-small">View Tours</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Konso -->
+                    <div class="destination-card">
+                        <img src="https://images.unsplash.com/photo-1533106418989-88406c7cc8ca?w=600&q=80" alt="Konso">
+                        <div class="info">
+                            <h3>Konso</h3>
+                            <div class="location"><i class="fas fa-map-marker-alt"></i> Konso Zone</div>
+                            <p>UNESCO World Heritage site with unique terraced agriculture and cultural landscapes.</p>
+                            <div class="highlights">
+                                <span>UNESCO</span>
+                                <span>Terraces</span>
+                                <span>Culture</span>
+                            </div>
+                            <a href="#" class="btn btn-primary btn-small">View Tours</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Lake Ziway -->
+                    <div class="destination-card">
+                        <img src="https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0?w=600&q=80" alt="Lake Ziway">
+                        <div class="info">
+                            <h3>Lake Ziway</h3>
+                            <div class="location"><i class="fas fa-map-marker-alt"></i> Rift Valley</div>
+                            <p>One of the Rift Valley lakes, perfect for bird watching with resident and migratory water birds.</p>
+                            <div class="highlights">
+                                <span>Birding</span>
+                                <span>Water Birds</span>
+                                <span>Lake</span>
+                            </div>
+                            <a href="#" class="btn btn-primary btn-small">View Tours</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- ===== EASTERN REGION ===== -->
+            <div class="region-section" id="east">
+                <h2><span>Eastern</span> Ethiopia</h2>
+                <p style="color: var(--text-light); margin-bottom: 20px;">Extreme landscapes - from the lowest point on Earth to volcanic wonders and desert wildlife.</p>
+                
+                <div class="destinations-grid">
+                    <!-- Danakil Depression -->
+                    <div class="destination-card">
+                        <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=600&q=80" alt="Danakil Depression">
+                        <div class="info">
+                            <h3>Danakil Depression</h3>
+                            <div class="location"><i class="fas fa-map-marker-alt"></i> Afar Region</div>
+                            <p>One of the hottest and lowest places on Earth. Active volcanoes, colorful salt lakes, and lunar landscapes.</p>
+                            <div class="highlights">
+                                <span>Extreme</span>
+                                <span>Volcanoes</span>
+                                <span>Salt Lake</span>
+                            </div>
+                            <a href="#" class="btn btn-primary btn-small">View Tours</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Awash National Park -->
+                    <div class="destination-card">
+                        <img src="https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0?w=600&q=80" alt="Awash National Park">
+                        <div class="info">
+                            <h3>Awash National Park</h3>
+                            <div class="location"><i class="fas fa-map-marker-alt"></i> Afar/Oromia</div>
+                            <p>Home to over 450 bird species including endemic birds. Hot springs, waterfalls, and abundant wildlife.</p>
+                            <div class="highlights">
+                                <span>Birding</span>
+                                <span>Wildlife</span>
+                                <span>Waterfalls</span>
+                            </div>
+                            <a href="#" class="btn btn-primary btn-small">View Tours</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- ===== CENTRAL REGION ===== -->
+            <div class="region-section" id="central">
+                <h2><span>Central</span> Ethiopia</h2>
+                <p style="color: var(--text-light); margin-bottom: 20px;">The heart of Ethiopia - the bustling capital, the Great Rift Valley, and the incredible Bale Mountains.</p>
+                
+                <div class="destinations-grid">
+                    <!-- Addis Ababa -->
+                    <div class="destination-card">
+                        <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=600&q=80" alt="Addis Ababa">
+                        <div class="info">
+                            <h3>Addis Ababa</h3>
+                            <div class="location"><i class="fas fa-map-marker-alt"></i> Capital City</div>
+                            <p>African capital and diplomatic hub. Home to the National Museum, Mercato market, and vibrant culture.</p>
+                            <div class="highlights">
+                                <span>City</span>
+                                <span>Museums</span>
+                                <span>Market</span>
+                            </div>
+                            <a href="#" class="btn btn-primary btn-small">View Tours</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Bale Mountains -->
+                    <div class="destination-card">
+                        <img src="https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0?w=600&q=80" alt="Bale Mountains">
+                        <div class="info">
+                            <h3>Bale Mountains</h3>
+                            <div class="location"><i class="fas fa-map-marker-alt"></i> Oromia Region</div>
+                            <p>Africa's largest Afro-alpine habitat. Home to endemic Ethiopian Wolf, Mountain Nyala, and 31 endemic birds.</p>
+                            <div class="highlights">
+                                <span>Birding</span>
+                                <span>Endemics</span>
+                                <span>Wildlife</span>
+                            </div>
+                            <a href="#" class="btn btn-primary btn-small">View Tours</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Rift Valley Lakes -->
+                    <div class="destination-card">
+                        <img src="https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0?w=600&q=80" alt="Rift Valley Lakes">
+                        <div class="info">
+                            <h3>Rift Valley Lakes</h3>
+                            <div class="location"><i class="fas fa-map-marker-alt"></i> Rift Valley</div>
+                            <p>Chain of beautiful lakes including Langano, Ziway, Awasa, and Abijata. Perfect for bird watching and relaxation.</p>
+                            <div class="highlights">
+                                <span>Birding</span>
+                                <span>Lakes</span>
+                                <span>Relaxation</span>
+                            </div>
+                            <a href="#" class="btn btn-primary btn-small">View Tours</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Interactive Map Section -->
+            <div class="map-container" style="margin-top: 50px;">
+                <h3 style="text-align: center; margin-bottom: 20px;">Explore Ethiopia's <span style="color: var(--secondary);">Destinations</span></h3>
+                <img src="https://via.placeholder.com/1200x500/7B2C2C/FFFFFF?text=Interactive+Map+Coming+Soon" alt="Ethiopia Map">
+                <p style="text-align: center; margin-top: 16px; color: var(--text-light); font-size: 0.95rem;">
+                    <i class="fas fa-info-circle"></i> Interactive map with all destinations coming soon! Contact us for personalized route planning.
+                </p>
+            </div>
+            
+            <!-- CTA -->
+            <div style="background: var(--primary); color: var(--white); padding: 40px; border-radius: var(--radius); text-align: center; margin-top: 40px;">
+                <h3 style="color: var(--white);">Ready to Explore Ethiopia?</h3>
+                <p style="opacity: 0.9; max-width: 500px; margin: 10px auto 20px;">Let us create a custom itinerary covering your dream destinations in Ethiopia.</p>
+                <a href="contact.html" class="btn btn-secondary">Plan Your Trip Now</a>
+            </div>
+            
+        </div>
+    </section>
+    
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3 style="color: var(--secondary);">Traverse Ethiopia</h3>
+                    <p>Traverse Ethiopia offers authentic birding and cultural tours led by expert local guides.</p>
+                    <div style="display: flex; gap: 12px; margin-top: 16px;">
+                        <a href="https://wa.me/251924012897" target="_blank" style="color: #25D366; font-size: 1.5rem;"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.facebook.com" target="_blank" style="color: var(--cream); font-size: 1.5rem;"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com" target="_blank" style="color: var(--cream); font-size: 1.5rem;"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com" target="_blank" style="color: var(--cream); font-size: 1.5rem;"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4>Our Tours</h4>
+                    <ul class="footer-links">
+                        <li><a href="birding-tours.html">Birding Tours</a></li>
+                        <li><a href="cultural-tours.html">Cultural Tours</a></li>
+                        <li><a href="destinations.html">Destinations</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4>Destinations</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Bale Mountains</a></li>
+                        <li><a href="#">Omo Valley</a></li>
+                        <li><a href="#">Lalibela</a></li>
+                        <li><a href="#">Danakil</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="tel:+251924012897">+251 924 012 897</a></li>
+                        <li><a href="tel:+251911626671">+251 911 626 671</a></li>
+                        <li><a href="mailto:traverseethiopia@gmail.com">traverseethiopia@gmail.com</a></li>
+                        <li><a href="contact.html">Contact Form</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Traverse Ethiopia Tours. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- ===== WHATSAPP FLOAT ===== -->
+    <a href="https://wa.me/251924012897" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    
+    <script src="js/main.js"></script>
+    
+    <script>
+        // Smooth scroll to region sections
+        function scrollToDestination(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+    </script>
+</body>
+</html>
