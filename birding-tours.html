@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birding Tours in Ethiopia | Traverse Ethiopia</title>
+    <meta name="description" content="Expert-led birding tours in Ethiopia. Spot endemic species in Bale Mountains, Awash National Park, and more.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        .page-hero {
+            background: linear-gradient(135deg, var(--primary-dark), var(--text));
+            color: var(--white);
+            padding: 140px 0 60px;
+            text-align: center;
+        }
+        .page-hero h1 { color: var(--white); }
+        .page-hero h1 span { color: var(--secondary); }
+        .page-hero p { max-width: 600px; margin: 0 auto; opacity: 0.9; }
+        
+        .filter-section {
+            padding: 30px 0;
+            background: var(--white);
+            border-bottom: 1px solid var(--cream-dark);
+        }
+        .filter-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .filter-btn {
+            padding: 8px 24px;
+            border-radius: 30px;
+            border: 2px solid var(--cream-dark);
+            background: transparent;
+            cursor: pointer;
+            font-weight: 500;
+            transition: var(--transition);
+            font-family: var(--font-body);
+        }
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--secondary);
+            border-color: var(--secondary);
+            color: var(--text);
+        }
+        
+        .tours-grid-page {
+            padding: 60px 0;
+            background: var(--cream);
+        }
+        .tour-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 30px;
+        }
+        
+        .bird-species-tag {
+            display: inline-block;
+            background: var(--secondary-light);
+            padding: 2px 12px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin: 2px;
+        }
+        
+        .quick-facts {
+            background: var(--white);
+            padding: 30px;
+            border-radius: var(--radius);
+            margin-top: 40px;
+        }
+        .quick-facts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .quick-fact {
+            text-align: center;
+            padding: 16px;
+            background: var(--cream);
+            border-radius: 8px;
+        }
+        .quick-fact .number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+        }
+        .quick-fact .label {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- ===== HEADER ===== -->
+    <header class="header" id="header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="https://via.placeholder.com/50x50/7B2C2C/FFFFFF?text=TE" alt="Traverse Ethiopia Logo">
+                Traverse <span>Ethiopia</span>
+            </a>
+            
+            <nav class="nav-menu" id="navMenu">
+                <a href="index.html">Home</a>
+                <a href="birding-tours.html" class="active">Birding Tours</a>
+                <a href="cultural-tours.html">Cultural Tours</a>
+                <a href="destinations.html">Destinations</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                
+                <div class="lang-switcher">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="am">አማ</button>
+                </div>
+            </nav>
+            
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+    
+    <!-- ===== PAGE HERO ===== -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Birding <span>Tours</span></h1>
+            <p>Discover Ethiopia's incredible avian diversity with expert local ornithologists. Home to over 860 bird species including 31 endemics.</p>
+        </div>
+    </section>
+    
+    <!-- ===== FILTERS ===== -->
+    <section class="filter-section">
+        <div class="container">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All Tours</button>
+                <button class="filter-btn" data-filter="bale">Bale Mountains</button>
+                <button class="filter-btn" data-filter="awash">Awash National Park</button>
+                <button class="filter-btn" data-filter="rift">Rift Valley</button>
+                <button class="filter-btn" data-filter="combo">Combo Tours</button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ===== TOURS GRID ===== -->
+    <section class="tours-grid-page">
+        <div class="container">
+            <div class="tour-grid">
+                <!-- Tour 1 -->
+                <div class="tour-card" data-category="bale">
+                    <div class="tour-card-image">
+                        <img src="https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0?w=600&q=80" alt="Bale Mountains Birding">
+                        <span class="tour-card-badge">Endemic Species</span>
+                    </div>
+                    <div class="tour-card-content">
+                        <h3>Bale Mountains Birding</h3>
+                        <div class="meta">
+                            <span><i class="fas fa-clock"></i> 7 Days</span>
+                            <span><i class="fas fa-users"></i> 4-8 People</span>
+                        </div>
+                        <p>Explore Africa's largest Afro-alpine habitat. Spot Ethiopian Wolf, Mountain Nyala, and rare endemic birds.</p>
+                        <div style="margin: 10px 0;">
+                            <span class="bird-species-tag">Ruddy Shelduck</span>
+                            <span class="bird-species-tag">Wattled Crane</span>
+                            <span class="bird-species-tag">Blue-winged Goose</span>
+                        </div>
+                        <div class="tour-card-footer">
+                            <span class="price">$2,450 <small>pp</small></span>
+                            <a href="#" class="btn btn-primary btn-small">View Itinerary</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tour 2 -->
+                <div class="tour-card" data-category="awash">
+                    <div class="tour-card-image">
+                        <img src="https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0?w=600&q=80" alt="Awash National Park">
+                        <span class="tour-card-badge">Safari Style</span>
+                    </div>
+                    <div class="tour-card-content">
+                        <h3>Awash National Park Birding</h3>
+                        <div class="meta">
+                            <span><i class="fas fa-clock"></i> 5 Days</span>
+                            <span><i class="fas fa-users"></i> 4-10 People</span>
+                        </div>
+                        <p>Discover the diverse birdlife along the Awash River. Home to over 450 bird species including the endemic Red-billed Pytilia.</p>
+                        <div style="margin: 10px 0;">
+                            <span class="bird-species-tag">African Fish Eagle</span>
+                            <span class="bird-species-tag">Goliath Heron</span>
+                            <span class="bird-species-tag">Red-billed Pytilia</span>
+                        </div>
+                        <div class="tour-card-footer">
+                            <span class="price">$1,800 <small>pp</small></span>
+                            <a href="#" class="btn btn-primary btn-small">View Itinerary</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tour 3 -->
+                <div class="tour-card" data-category="rift">
+                    <div class="tour-card-image">
+                        <img src="https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0?w=600&q=80" alt="Rift Valley Lakes">
+                        <span class="tour-card-badge">Water Birds</span>
+                    </div>
+                    <div class="tour-card-content">
+                        <h3>Rift Valley Lakes Birding</h3>
+                        <div class="meta">
+                            <span><i class="fas fa-clock"></i> 6 Days</span>
+                            <span><i class="fas fa-users"></i> 4-8 People</span>
+                        </div>
+                        <p>Visit Lake Ziway, Lake Langano, and Lake Awasa. Perfect for water birds, flamingos, and pelicans.</p>
+                        <div style="margin: 10px 0;">
+                            <span class="bird-species-tag">Greater Flamingo</span>
+                            <span class="bird-species-tag">Great White Pelican</span>
+                            <span class="bird-species-tag">African Jacana</span>
+                        </div>
+                        <div class="tour-card-footer">
+                            <span class="price">$2,100 <small>pp</small></span>
+                            <a href="#" class="btn btn-primary btn-small">View Itinerary</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tour 4 -->
+                <div class="tour-card" data-category="combo">
+                    <div class="tour-card-image">
+                        <img src="https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0?w=600&q=80" alt="Complete Birding Tour">
+                        <span class="tour-card-badge">Ultimate</span>
+                    </div>
+                    <div class="tour-card-content">
+                        <h3>Ultimate Ethiopia Birding</h3>
+                        <div class="meta">
+                            <span><i class="fas fa-clock"></i> 14 Days</span>
+                            <span><i class="fas fa-users"></i> 4-10 People</span>
+                        </div>
+                        <p>The complete birding experience covering Bale, Awash, and the Rift Valley. See all 31 endemic species!</p>
+                        <div style="margin: 10px 0;">
+                            <span class="bird-species-tag">All Endemics</span>
+                            <span class="bird-species-tag">Ethiopian Wolf</span>
+                            <span class="bird-species-tag">Mountain Nyala</span>
+                        </div>
+                        <div class="tour-card-footer">
+                            <span class="price">$4,800 <small>pp</small></span>
+                            <a href="#" class="btn btn-primary btn-small">View Itinerary</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Quick Facts -->
+            <div class="quick-facts">
+                <h3 style="text-align: center; margin-bottom: 20px;">Ethiopia Birding <span style="color: var(--secondary);">Facts</span></h3>
+                <div class="quick-facts-grid">
+                    <div class="quick-fact">
+                        <span class="number">860+</span>
+                        <span class="label">Bird Species</span>
+                    </div>
+                    <div class="quick-fact">
+                        <span class="number">31</span>
+                        <span class="label">Endemic Species</span>
+                    </div>
+                    <div class="quick-fact">
+                        <span class="number">15+</span>
+                        <span class="label">Birding Sites</span>
+                    </div>
+                    <div class="quick-fact">
+                        <span class="number">4</span>
+                        <span class="label">Endemic Bird Areas</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3 style="color: var(--secondary);">Traverse Ethiopia</h3>
+                    <p>Traverse Ethiopia offers authentic birding and cultural tours led by expert local guides.</p>
+                    <div style="display: flex; gap: 12px; margin-top: 16px;">
+                        <a href="https://wa.me/251924012897" target="_blank" style="color: #25D366; font-size: 1.5rem;"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.facebook.com" target="_blank" style="color: var(--cream); font-size: 1.5rem;"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com" target="_blank" style="color: var(--cream); font-size: 1.5rem;"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com" target="_blank" style="color: var(--cream); font-size: 1.5rem;"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4>Our Tours</h4>
+                    <ul class="footer-links">
+                        <li><a href="birding-tours.html">Birding Tours</a></li>
+                        <li><a href="cultural-tours.html">Cultural Tours</a></li>
+                        <li><a href="destinations.html">Destinations</a></li>
+                        <li><a href="itineraries.html">Itineraries</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4>Destinations</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Bale Mountains</a></li>
+                        <li><a href="#">Omo Valley</a></li>
+                        <li><a href="#">Lalibela</a></li>
+                        <li><a href="#">Danakil</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="tel:+251924012897">+251 924 012 897</a></li>
+                        <li><a href="tel:+251911626671">+251 911 626 671</a></li>
+                        <li><a href="mailto:traverseethiopia@gmail.com">traverseethiopia@gmail.com</a></li>
+                        <li><a href="contact.html">Contact Form</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Traverse Ethiopia Tours. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- ===== WHATSAPP FLOAT ===== -->
+    <a href="https://wa.me/251924012897" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    
+    <script src="js/main.js"></script>
+    
+    <!-- Filter functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const tourCards = document.querySelectorAll('.tour-card');
+            
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const filter = this.dataset.filter;
+                    
+                    tourCards.forEach(card => {
+                        if (filter === 'all' || card.dataset.category === filter) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
