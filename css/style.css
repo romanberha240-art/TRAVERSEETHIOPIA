@@ -178,6 +178,7 @@ h4 { font-size: 1.4rem; margin-bottom: 0.5rem; }
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    gap: 12px;
 }
 
 .logo {
@@ -188,11 +189,16 @@ h4 { font-size: 1.4rem; margin-bottom: 0.5rem; }
     font-size: 1.6rem;
     color: var(--white);
     font-weight: 700;
+    white-space: nowrap;
+    flex-shrink: 1;
+    min-width: 0;
 }
 
-.logo img {
-    height: 50px;
-    width: auto;
+.logo img,
+.logo .logo-mark {
+    height: 44px;
+    width: 44px;
+    flex-shrink: 0;
 }
 
 .header.scrolled .logo {
@@ -250,6 +256,7 @@ h4 { font-size: 1.4rem; margin-bottom: 0.5rem; }
     background: none;
     border: none;
     padding: 5px;
+    flex-shrink: 0;
 }
 
 .menu-toggle span {
@@ -496,6 +503,28 @@ h4 { font-size: 1.4rem; margin-bottom: 0.5rem; }
 .destinations-section {
     padding: 80px 0;
     background: var(--cream);
+}
+
+.map-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    min-height: 260px;
+    border-radius: var(--radius);
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+    color: var(--cream);
+}
+
+.map-placeholder i {
+    font-size: 2.5rem;
+    color: var(--secondary);
+}
+
+.map-placeholder span {
+    font-weight: 600;
+    font-size: 1.05rem;
 }
 
 .destination-grid {
@@ -818,7 +847,18 @@ h4 { font-size: 1.4rem; margin-bottom: 0.5rem; }
     .menu-toggle {
         display: flex;
     }
-    
+
+    .logo {
+        font-size: 1.2rem;
+        gap: 8px;
+    }
+
+    .logo img,
+    .logo .logo-mark {
+        height: 36px;
+        width: 36px;
+    }
+
     .nav-menu {
         position: fixed;
         top: 0;
@@ -833,24 +873,25 @@ h4 { font-size: 1.4rem; margin-bottom: 0.5rem; }
         transition: var(--transition);
         box-shadow: var(--shadow-hover);
     }
-    
+
     .nav-menu.open {
         right: 0;
     }
-    
+
     .nav-menu a {
         color: var(--text) !important;
         font-size: 1.2rem;
     }
-    
+
     .lang-switcher button {
         color: var(--text) !important;
     }
-    
+
     .hero h1 { font-size: 2.5rem; }
     .hero-stats {
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
+        padding-bottom: 60px;
     }
     .tour-grid {
         grid-template-columns: 1fr;
@@ -860,6 +901,13 @@ h4 { font-size: 1.4rem; margin-bottom: 0.5rem; }
     }
     .contact-form {
         padding: 24px;
+    }
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        font-size: 1.6rem;
+        bottom: 20px;
+        right: 20px;
     }
 }
 
