@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traverse Ethiopia Tours | Birding & Cultural Adventures</title>
+    <meta name="description" content="Expert-led birding and cultural tours in Ethiopia. Discover endemic species, ancient tribes, and breathtaking landscapes with Traverse Ethiopia.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <!-- ===== HEADER ===== -->
+    <header class="header" id="header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="https://via.placeholder.com/50x50/7B2C2C/FFFFFF?text=TE" alt="Traverse Ethiopia Logo">
+                Traverse <span>Ethiopia</span>
+            </a>
+            
+            <nav class="nav-menu" id="navMenu">
+                <a href="index.html" class="active" data-translate="nav-home">Home</a>
+                <a href="birding-tours.html" data-translate="nav-tours">Tours</a>
+                <a href="destinations.html" data-translate="nav-destinations">Destinations</a>
+                <a href="gallery.html" data-translate="nav-gallery">Gallery</a>
+                <a href="about.html" data-translate="nav-about">About</a>
+                <a href="contact.html" data-translate="nav-contact">Contact</a>
+                
+                <div class="lang-switcher">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="am">አማ</button>
+                </div>
+            </nav>
+            
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+    
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero" id="home">
+        <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=1920&q=80" alt="Ethiopian Landscape" class="hero-bg">
+        <div class="container">
+            <h1 data-translate="hero-title">Discover the Wonders of <span>Ethiopia</span></h1>
+            <p data-translate="hero-subtitle">Expert-led birding and cultural tours in the cradle of humanity</p>
+            <div class="hero-buttons">
+                <a href="birding-tours.html" class="btn btn-primary" data-translate="hero-cta1">Explore Tours</a>
+                <a href="contact.html" class="btn btn-outline" data-translate="hero-cta2">Contact Us</a>
+            </div>
+            
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="number" data-count="50">50+</span>
+                    <span class="label" data-translate="stat-tours">Tours</span>
+                </div>
+                <div class="stat">
+                    <span class="number" data-count="300">300+</span>
+                    <span class="label" data-translate="stat-birds">Bird Species</span>
+                </div>
+                <div class="stat">
+                    <span class="number" data-count="80">80+</span>
+                    <span class="label" data-translate="stat-tribes">Tribes</span>
+                </div>
+                <div class="stat">
+                    <span class="number" data-count="15">15+</span>
+                    <span class="label" data-translate="stat-years">Years Experience</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ===== FEATURED TOURS ===== -->
+    <section class="featured-tours" id="tours">
+        <div class="container">
+            <h2 class="section-title" data-translate="featured-title">Featured <span>Tours</span></h2>
+            <p class="section-subtitle" data-translate="featured-subtitle">Hand-crafted adventures across Ethiopia's most spectacular destinations</p>
+            
+            <div class="tour-grid">
+                <!-- Tour 1: Birding -->
+                <div class="tour-card">
+                    <div class="tour-card-image">
+                        <img src="https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0?w=600&q=80" alt="Birding in Bale Mountains">
+                        <span class="tour-card-badge">Birding</span>
+                    </div>
+                    <div class="tour-card-content">
+                        <h3>Bale Mountains Birding</h3>
+                        <div class="meta">
+                            <span><i class="fas fa-clock"></i> 7 Days</span>
+                            <span><i class="fas fa-users"></i> 4-8 People</span>
+                        </div>
+                        <p>Explore Ethiopia's premier birding destination. Spot endemic species like the Ethiopian Wolf and Mountain Nyala.</p>
+                        <div class="tour-card-footer">
+                            <span class="price">$2,450 <small>pp</small></span>
+                            <a href="itinerary-bale.html" class="btn btn-primary btn-small">View Itinerary</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tour 2: Cultural -->
+                <div class="tour-card">
+                    <div class="tour-card-image">
+                        <img src="https://images.unsplash.com/photo-1533106418989-88406c7cc8ca?w=600&q=80" alt="Omo Valley Tribes">
+                        <span class="tour-card-badge">Cultural</span>
+                    </div>
+                    <div class="tour-card-content">
+                        <h3>Omo Valley Tribal Experience</h3>
+                        <div class="meta">
+                            <span><i class="fas fa-clock"></i> 10 Days</span>
+                            <span><i class="fas fa-users"></i> 4-10 People</span>
+                        </div>
+                        <p>Meet the Hamer, Mursi, and Konso tribes. Experience ancient traditions and vibrant ceremonies.</p>
+                        <div class="tour-card-footer">
+                            <span class="price">$3,200 <small>pp</small></span>
+                            <a href="itinerary-omo.html" class="btn btn-primary btn-small">View Itinerary</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tour 3: Combo -->
+                <div class="tour-card">
+                    <div class="tour-card-image">
+                        <img src="https://images.unsplash.com/photo-1533106418989-88406c7cc8ca?w=600&q=80" alt="Danakil Depression">
+                        <span class="tour-card-badge">Adventure</span>
+                    </div>
+                    <div class="tour-card-content">
+                        <h3>Danakil & Lalibela Combo</h3>
+                        <div class="meta">
+                            <span><i class="fas fa-clock"></i> 14 Days</span>
+                            <span><i class="fas fa-users"></i> 4-8 People</span>
+                        </div>
+                        <p>From the lowest point on Earth to the rock-hewn churches. An epic journey through northern Ethiopia.</p>
+                        <div class="tour-card-footer">
+                            <span class="price">$4,800 <small>pp</small></span>
+                            <a href="itinerary-danakil.html" class="btn btn-primary btn-small">View Itinerary</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ===== DESTINATIONS ===== -->
+    <section class="destinations-section" id="destinations">
+        <div class="container">
+            <h2 class="section-title" data-translate="destinations-title">Popular <span>Destinations</span></h2>
+            
+            <div class="destination-grid">
+                <div class="destination-item">
+                    <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=200&q=80" alt="Addis Ababa">
+                    <h4>Addis Ababa</h4>
+                    <p>Capital City</p>
+                </div>
+                <div class="destination-item">
+                    <img src="https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0?w=200&q=80" alt="Bale Mountains">
+                    <h4>Bale Mountains</h4>
+                    <p>Birding Paradise</p>
+                </div>
+                <div class="destination-item">
+                    <img src="https://images.unsplash.com/photo-1533106418989-88406c7cc8ca?w=200&q=80" alt="Omo Valley">
+                    <h4>Omo Valley</h4>
+                    <p>Tribal Culture</p>
+                </div>
+                <div class="destination-item">
+                    <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=200&q=80" alt="Lalibela">
+                    <h4>Lalibela</h4>
+                    <p>Rock Churches</p>
+                </div>
+                <div class="destination-item">
+                    <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=200&q=80" alt="Danakil">
+                    <h4>Danakil</h4>
+                    <p>Lowest Point</p>
+                </div>
+                <div class="destination-item">
+                    <img src="https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0?w=200&q=80" alt="Simien Mountains">
+                    <h4>Simien Mountains</h4>
+                    <p>Trekking</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ===== TESTIMONIALS ===== -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title">What Our <span>Travelers Say</span></h2>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <blockquote>"An unforgettable experience! The birding in Bale Mountains was spectacular. Our guide knew every species by call. Highly recommended!"</blockquote>
+                    <div class="client">
+                        <img src="https://i.pravatar.cc/100?img=11" alt="Sarah Johnson">
+                        <div>
+                            <div class="name">Sarah Johnson</div>
+                            <div class="location">United Kingdom</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <blockquote>"The Omo Valley tour exceeded all expectations. Meeting the tribes was life-changing. Traverse Ethiopia provides an authentic, respectful experience."</blockquote>
+                    <div class="client">
+                        <img src="https://i.pravatar.cc/100?img=12" alt="David Chen">
+                        <div>
+                            <div class="name">David Chen</div>
+                            <div class="location">Australia</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <blockquote>"From Lalibela to Danakil, every moment was perfectly organized. The guides were knowledgeable and passionate. Book with confidence!"</blockquote>
+                    <div class="client">
+                        <img src="https://i.pravatar.cc/100?img=13" alt="Maria Rodriguez">
+                        <div>
+                            <div class="name">Maria Rodriguez</div>
+                            <div class="location">Spain</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ===== ABOUT SECTION ===== -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0?w=800&q=80" alt="Ethiopian Guide">
+                </div>
+                <div class="about-content">
+                    <h2 data-translate="about-title">About <span>Traverse Ethiopia</span></h2>
+                    <p>Traverse Ethiopia Tours is your gateway to authentic Ethiopian experiences. Founded by local experts with over 15 years of guiding experience, we specialize in:</p>
+                    
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check-circle"></i> Professional birding tours with endemic species specialists</li>
+                        <li><i class="fas fa-check-circle"></i> Cultural immersion with respect for local traditions</li>
+                        <li><i class="fas fa-check-circle"></i> Small group sizes for personalized experiences</li>
+                        <li><i class="fas fa-check-circle"></i> Expert local guides with deep knowledge</li>
+                        <li><i class="fas fa-check-circle"></i> Sustainable tourism practices</li>
+                    </ul>
+                    
+                    <a href="about.html" class="btn btn-primary">Learn More About Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ===== CONTACT SECTION ===== -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <h2 class="section-title" data-translate="contact-title">Get In <span>Touch</span></h2>
+            <p class="section-subtitle" data-translate="contact-subtitle">Let's plan your Ethiopian adventure together</p>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <p style="margin-bottom: 30px; color: var(--text-light);">Reach out to us via phone, WhatsApp, or email. We're here to help you plan the perfect Ethiopian journey.</p>
+                    
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <strong>Phone / WhatsApp</strong>
+                            <p>+251 924 012 897</p>
+                            <p>+251 911 626 671</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <strong>Email</strong>
+                            <p>traverseethiopia@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong>Location</strong>
+                            <p>Addis Ababa, Ethiopia</p>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="https://wa.me/251924012897" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name" data-translate="form-name">Full Name *</label>
+                            <input type="text" id="name" placeholder="Your full name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" data-translate="form-email">Email Address *</label>
+                            <input type="email" id="email" placeholder="your@email.com" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone" data-translate="form-phone">Phone Number</label>
+                            <input type="tel" id="phone" placeholder="+251 9XX XXX XXX">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="tour" data-translate="form-tour">Tour Interest</label>
+                            <select id="tour">
+                                <option value="">Select a tour...</option>
+                                <option value="bale">Bale Mountains Birding</option>
+                                <option value="omo">Omo Valley Cultural</option>
+                                <option value="danakil">Danakil & Lalibela Combo</option>
+                                <option value="custom">Custom Tour</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="dates" data-translate="form-dates">Travel Dates</label>
+                            <input type="text" id="dates" placeholder="e.g., December 2024">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="people" data-translate="form-people">Number of Travelers</label>
+                            <input type="number" id="people" placeholder="2" min="1">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="budget" data-translate="form-budget">Budget Range</label>
+                            <select id="budget">
+                                <option value="">Select budget...</option>
+                                <option value="1000-2000">$1,000 - $2,000</option>
+                                <option value="2000-3500">$2,000 - $3,500</option>
+                                <option value="3500-5000">$3,500 - $5,000</option>
+                                <option value="5000+">$5,000+</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message" data-translate="form-message">Special Requests</label>
+                            <textarea id="message" placeholder="Tell us about your preferences, dietary needs, or special interests..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" style="width: 100%;" data-translate="form-submit">Send Booking Request</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3 style="color: var(--secondary);">Traverse Ethiopia</h3>
+                    <p data-translate="footer-about">Traverse Ethiopia offers authentic birding and cultural tours led by expert local guides.</p>
+                    <div style="display: flex; gap: 12px; margin-top: 16px;">
+                        <a href="https://wa.me/251924012897" target="_blank" style="color: #25D366; font-size: 1.5rem;"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.facebook.com" target="_blank" style="color: var(--cream); font-size: 1.5rem;"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com" target="_blank" style="color: var(--cream); font-size: 1.5rem;"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com" target="_blank" style="color: var(--cream); font-size: 1.5rem;"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 data-translate="footer-tours">Our Tours</h4>
+                    <ul class="footer-links">
+                        <li><a href="birding-tours.html">Birding Tours</a></li>
+                        <li><a href="cultural-tours.html">Cultural Tours</a></li>
+                        <li><a href="destinations.html">Destinations</a></li>
+                        <li><a href="itineraries.html">Itineraries</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 data-translate="footer-destinations">Destinations</h4>
+                    <ul class="footer-links">
+                        <li><a href="destination-bale.html">Bale Mountains</a></li>
+                        <li><a href="destination-omo.html">Omo Valley</a></li>
+                        <li><a href="destination-lalibela.html">Lalibela</a></li>
+                        <li><a href="destination-danakil.html">Danakil</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 data-translate="footer-contact">Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="tel:+251924012897">+251 924 012 897</a></li>
+                        <li><a href="tel:+251911626671">+251 911 626 671</a></li>
+                        <li><a href="mailto:traverseethiopia@gmail.com">traverseethiopia@gmail.com</a></li>
+                        <li><a href="contact.html">Contact Form</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Traverse Ethiopia Tours. <span data-translate="footer-rights">All Rights Reserved</span>.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- ===== WHATSAPP FLOAT ===== -->
+    <a href="https://wa.me/251924012897" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    
+    <!-- ===== SCRIPTS ===== -->
+    <script src="js/main.js"></script>
+</body>
+</html>
