@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Traverse Ethiopia Tours | Book Your Adventure</title>
+    <meta name="description" content="Contact Traverse Ethiopia for expert-led birding and cultural tours. Reach us via WhatsApp, email, or phone.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        .page-hero {
+            background: linear-gradient(135deg, var(--primary-dark), var(--text));
+            color: var(--white);
+            padding: 140px 0 60px;
+            text-align: center;
+        }
+        .page-hero h1 { color: var(--white); }
+        .page-hero h1 span { color: var(--secondary); }
+        .page-hero p { max-width: 600px; margin: 0 auto; opacity: 0.9; }
+        
+        .contact-page-section {
+            padding: 60px 0;
+            background: var(--cream);
+        }
+        
+        .contact-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .contact-card i {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 16px;
+        }
+        .contact-card h4 { margin-bottom: 8px; }
+        .contact-card p { color: var(--text-light); }
+        .contact-card a { color: var(--primary); font-weight: 500; }
+        .contact-card a:hover { color: var(--secondary); }
+        
+        .contact-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .map-container {
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            margin-top: 30px;
+        }
+        .map-container iframe {
+            width: 100%;
+            height: 350px;
+            border: 0;
+        }
+        
+        .quick-response {
+            background: var(--secondary-light);
+            padding: 20px 30px;
+            border-radius: var(--radius);
+            text-align: center;
+            margin-top: 30px;
+        }
+        .quick-response h3 { margin-bottom: 10px; }
+        .quick-response .btn { margin-top: 10px; }
+    </style>
+</head>
+<body>
+    
+    <!-- ===== HEADER ===== -->
+    <header class="header" id="header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="https://via.placeholder.com/50x50/7B2C2C/FFFFFF?text=TE" alt="Traverse Ethiopia Logo">
+                Traverse <span>Ethiopia</span>
+            </a>
+            
+            <nav class="nav-menu" id="navMenu">
+                <a href="index.html">Home</a>
+                <a href="birding-tours.html">Birding Tours</a>
+                <a href="cultural-tours.html">Cultural Tours</a>
+                <a href="destinations.html">Destinations</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="about.html">About</a>
+                <a href="contact.html" class="active">Contact</a>
+                
+                <div class="lang-switcher">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="am">አማ</button>
+                </div>
+            </nav>
+            
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+    
+    <!-- ===== PAGE HERO ===== -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Get In <span>Touch</span></h1>
+            <p>We're here to help you plan the perfect Ethiopian adventure. Reach out and let's start planning!</p>
+        </div>
+    </section>
+    
+    <!-- ===== CONTACT SECTION ===== -->
+    <section class="contact-page-section">
+        <div class="container">
+            <div class="contact-cards-grid">
+                <div class="contact-card">
+                    <i class="fas fa-phone-alt"></i>
+                    <h4>Call Us</h4>
+                    <p><a href="tel:+251924012897">+251 924 012 897</a></p>
+                    <p><a href="tel:+251911626671">+251 911 626 671</a></p>
+                    <p style="font-size: 0.85rem; color: var(--gray);">Available 8am - 8pm EAT</p>
+                </div>
+                
+                <div class="contact-card">
+                    <i class="fab fa-whatsapp" style="color: #25D366;"></i>
+                    <h4>WhatsApp</h4>
+                    <p><a href="https://wa.me/251924012897" target="_blank">+251 924 012 897</a></p>
+                    <p><a href="https://wa.me/251911626671" target="_blank">+251 911 626 671</a></p>
+                    <p style="font-size: 0.85rem; color: var(--gray);">Quickest response time</p>
+                </div>
+                
+                <div class="contact-card">
+                    <i class="fas fa-envelope"></i>
+                    <h4>Email Us</h4>
+                    <p><a href="mailto:traverseethiopia@gmail.com">traverseethiopia@gmail.com</a></p>
+                    <p style="font-size: 0.85rem; color: var(--gray);">We respond within 24 hours</p>
+                </div>
+                
+                <div class="contact-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h4>Visit Us</h4>
+                    <p>Addis Ababa, Ethiopia</p>
+                    <p style="font-size: 0.85rem; color: var(--gray);">By appointment only</p>
+                </div>
+            </div>
+            
+            <!-- Contact Form (reusing from index) -->
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div class="contact-form" style="background: var(--white);">
+                    <h3 style="text-align: center; margin-bottom: 30px;">Send a <span style="color: var(--secondary);">Booking Request</span></h3>
+                    
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" placeholder="Your full name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" placeholder="your@email.com" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" placeholder="+251 9XX XXX XXX">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="tour">Tour Interest</label>
+                            <select id="tour">
+                                <option value="">Select a tour...</option>
+                                <option value="bale">Bale Mountains Birding - 7 Days</option>
+                                <option value="omo">Omo Valley Cultural - 10 Days</option>
+                                <option value="danakil">Danakil & Lalibela Combo - 14 Days</option>
+                                <option value="ultimate">Ultimate Ethiopia Birding - 14 Days</option>
+                                <option value="custom">Custom Tour</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="dates">Travel Dates</label>
+                            <input type="text" id="dates" placeholder="e.g., December 2024">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="people">Number of Travelers</label>
+                            <input type="number" id="people" placeholder="2" min="1">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Special Requests</label>
+                            <textarea id="message" placeholder="Tell us about your preferences, dietary needs, or special interests..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Booking Request</button>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Quick Response -->
+            <div class="quick-response">
+                <h3>Need a Quick Response?</h3>
+                <p>Contact us directly on WhatsApp for the fastest reply! We usually respond within minutes.</p>
+                <a href="https://wa.me/251924012897" target="_blank" class="btn btn-primary">
+                    <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                </a>
+            </div>
+            
+            <!-- Map -->
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.323974955152!2d38.76346001482045!3d9.032007193513223!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b85d947ab181f%3A0x22de3a00258a221e!2sAddis%20Ababa%2C%20Ethiopia!5e0!3m2!1sen!2s!4v1700000000000" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3 style="color: var(--secondary);">Traverse Ethiopia</h3>
+                    <p>Traverse Ethiopia offers authentic birding and cultural tours led by expert local guides.</p>
+                    <div style="display: flex; gap: 12px; margin-top: 16px;">
+                        <a href="https://wa.me/251924012897" target="_blank" style="color: #25D366; font-size: 1.5rem;"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.facebook.com" target="_blank" style="color: var(--cream); font-size: 1.5rem;"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com" target="_blank" style="color: var(--cream); font-size: 1.5rem;"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com" target="_blank" style="color: var(--cream); font-size: 1.5rem;"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4>Our Tours</h4>
+                    <ul class="footer-links">
+                        <li><a href="birding-tours.html">Birding Tours</a></li>
+                        <li><a href="cultural-tours.html">Cultural Tours</a></li>
+                        <li><a href="destinations.html">Destinations</a></li>
+                        <li><a href="itineraries.html">Itineraries</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4>Destinations</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Bale Mountains</a></li>
+                        <li><a href="#">Omo Valley</a></li>
+                        <li><a href="#">Lalibela</a></li>
+                        <li><a href="#">Danakil</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="tel:+251924012897">+251 924 012 897</a></li>
+                        <li><a href="tel:+251911626671">+251 911 626 671</a></li>
+                        <li><a href="mailto:traverseethiopia@gmail.com">traverseethiopia@gmail.com</a></li>
+                        <li><a href="contact.html">Contact Form</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Traverse Ethiopia Tours. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- ===== WHATSAPP FLOAT ===== -->
+    <a href="https://wa.me/251924012897" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    
+    <script src="js/main.js"></script>
+</body>
+</html>
