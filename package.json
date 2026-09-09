@@ -1,0 +1,11 @@
+{
+  "name": "traverse-ethiopia-tours",
+  "version": "1.0.0",
+  "description": "Traverse Ethiopia Tours static website",
+  "scripts": {
+    "start": "npx serve -s . -l 3000"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
