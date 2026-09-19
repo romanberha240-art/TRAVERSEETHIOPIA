@@ -4,17 +4,17 @@
 // ============================================
 
 const ETHIOPIA_IMAGES = {
-    lalibela: 'https://commons.wikimedia.org/wiki/Special:FilePath/Bet_Giyorgis_Lalibela.jpg',
-    omo: 'https://commons.wikimedia.org/wiki/Special:FilePath/Hamar_woman_2.jpg',
-    mursi: 'https://commons.wikimedia.org/wiki/Special:FilePath/Mursi_women_Ethiopia_2009_006.jpg',
-    bale: 'https://commons.wikimedia.org/wiki/Special:FilePath/Bale_Mountains_National_Park%2C_not_forgotten%2C_Ethiopia_%2844209345805%29.jpg',
-    wolf: 'https://commons.wikimedia.org/wiki/Special:FilePath/Canis_simensis_%28Ethiopian_Wolf%29_01.jpg',
-    bird: 'https://commons.wikimedia.org/wiki/Special:FilePath/Streptopelia_decipiens_-Ethiopia-8.jpg',
-    danakil: 'https://commons.wikimedia.org/wiki/Special:FilePath/Danakil_Depression_%28Ethiopia%29_-_2014-03-12_-_13.11.10.jpg',
-    simien: 'https://commons.wikimedia.org/wiki/Special:FilePath/Simien_Mountains_Landscape%2C_Ethiopia_-_Diliff.jpg',
-    gondar: 'https://commons.wikimedia.org/wiki/Special:FilePath/Fasil_Ghebbi%2C_the_royal_enclosure_of_Gondar%2C_Ethiopia_%28cropped%29.jpg',
-    axum: 'https://commons.wikimedia.org/wiki/Special:FilePath/Axum_Obelisk_1.jpg',
-    addis: 'https://commons.wikimedia.org/wiki/Special:FilePath/Addis_Ababa%2C_Ethiopia._%2832201336977%29.jpg'
+    lalibela: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1200&q=80',
+    omo: 'https://images.unsplash.com/photo-1533106418989-88406c7cc8ca?w=1200&q=80',
+    mursi: 'https://images.unsplash.com/photo-1533106418989-88406c7cc8ca?w=1200&q=80',
+    bale: 'https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0?w=1200&q=80',
+    wolf: 'https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0?w=1200&q=80',
+    bird: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1200&q=80',
+    danakil: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=1200&q=80',
+    simien: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1200&q=80',
+    gondar: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=1200&q=80',
+    axum: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1200&q=80',
+    addis: 'https://images.unsplash.com/photo-1523908511403-7fc7b25592f4?w=1200&q=80'
 };
 
 function imageFor(alt) {
@@ -37,8 +37,6 @@ function imageFor(alt) {
 function useRealEthiopiaImages() {
     document.querySelectorAll('img').forEach((img) => {
         const replacement = imageFor(img.alt);
-        // Also remove the remaining generated avatar images, even where the old alt
-        // text was generic. The replacement is an actual Ethiopia photograph.
         if (replacement || img.src.includes('unsplash.com') || img.src.includes('pravatar.cc')) {
             img.src = replacement || ETHIOPIA_IMAGES.addis;
             img.removeAttribute('srcset');
