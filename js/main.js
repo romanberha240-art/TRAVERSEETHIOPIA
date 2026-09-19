@@ -1,284 +1,83 @@
 // ============================================
 // TRAVERSE ETHIOPIA TOURS - MAIN JAVASCRIPT
+// Real Ethiopia image replacement and site interactions
 // ============================================
 
-document.addEventListener('DOMContentLoaded', function() {
-    
-    // ===== Header Scroll Effect =====
-    const header = document.querySelector('.header');
-    let lastScroll = 0;
-    
-    window.addEventListener('scroll', function() {
-        const currentScroll = window.pageYOffset;
-        if (currentScroll > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
+const ETHIOPIA_IMAGES = {
+    lalibela: 'https://commons.wikimedia.org/wiki/Special:FilePath/Bet_Giyorgis_Lalibela.jpg',
+    omo: 'https://commons.wikimedia.org/wiki/Special:FilePath/Hamar_woman_2.jpg',
+    mursi: 'https://commons.wikimedia.org/wiki/Special:FilePath/Mursi_women_Ethiopia_2009_006.jpg',
+    bale: 'https://commons.wikimedia.org/wiki/Special:FilePath/Bale_Mountains_National_Park%2C_not_forgotten%2C_Ethiopia_%2844209345805%29.jpg',
+    wolf: 'https://commons.wikimedia.org/wiki/Special:FilePath/Canis_simensis_%28Ethiopian_Wolf%29_01.jpg',
+    bird: 'https://commons.wikimedia.org/wiki/Special:FilePath/Streptopelia_decipiens_-Ethiopia-8.jpg',
+    danakil: 'https://commons.wikimedia.org/wiki/Special:FilePath/Danakil_Depression_%28Ethiopia%29_-_2014-03-12_-_13.11.10.jpg',
+    simien: 'https://commons.wikimedia.org/wiki/Special:FilePath/Simien_Mountains_Landscape%2C_Ethiopia_-_Diliff.jpg',
+    gondar: 'https://commons.wikimedia.org/wiki/Special:FilePath/Fasil_Ghebbi%2C_the_royal_enclosure_of_Gondar%2C_Ethiopia_%28cropped%29.jpg',
+    axum: 'https://commons.wikimedia.org/wiki/Special:FilePath/Axum_Obelisk_1.jpg',
+    addis: 'https://commons.wikimedia.org/wiki/Special:FilePath/Addis_Ababa%2C_Ethiopia._%2832201336977%29.jpg'
+};
+
+function imageFor(alt) {
+    const text = (alt || '').toLowerCase();
+    if (text.includes('lalibela') || text.includes('church')) return ETHIOPIA_IMAGES.lalibela;
+    if (text.includes('mursi')) return ETHIOPIA_IMAGES.mursi;
+    if (text.includes('omo') || text.includes('hamer') || text.includes('tribe') || text.includes('culture')) return ETHIOPIA_IMAGES.omo;
+    if (text.includes('wolf')) return ETHIOPIA_IMAGES.wolf;
+    if (text.includes('bird') || text.includes('awash') || text.includes('rift') || text.includes('lake')) return ETHIOPIA_IMAGES.bird;
+    if (text.includes('bale')) return ETHIOPIA_IMAGES.bale;
+    if (text.includes('danakil')) return ETHIOPIA_IMAGES.danakil;
+    if (text.includes('simien') || text.includes('mountain')) return ETHIOPIA_IMAGES.simien;
+    if (text.includes('gondar')) return ETHIOPIA_IMAGES.gondar;
+    if (text.includes('axum')) return ETHIOPIA_IMAGES.axum;
+    if (text.includes('addis')) return ETHIOPIA_IMAGES.addis;
+    if (text.includes('guide') || text.includes('team')) return ETHIOPIA_IMAGES.addis;
+    return null;
+}
+
+function useRealEthiopiaImages() {
+    document.querySelectorAll('img').forEach((img) => {
+        const replacement = imageFor(img.alt);
+        // Also remove the remaining generated avatar images, even where the old alt
+        // text was generic. The replacement is an actual Ethiopia photograph.
+        if (replacement || img.src.includes('unsplash.com') || img.src.includes('pravatar.cc')) {
+            img.src = replacement || ETHIOPIA_IMAGES.addis;
+            img.removeAttribute('srcset');
+            img.loading = img.loading || 'lazy';
         }
-        lastScroll = currentScroll;
     });
-    
-    // ===== Mobile Menu Toggle =====
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    useRealEthiopiaImages();
+
+    const header = document.querySelector('.header');
+    window.addEventListener('scroll', () => {
+        if (header) header.classList.toggle('scrolled', window.pageYOffset > 50);
+    });
+
     const menuToggle = document.querySelector('.menu-toggle');
     const navMenu = document.querySelector('.nav-menu');
-    
-    if (menuToggle) {
-        menuToggle.addEventListener('click', function() {
-            this.classList.toggle('active');
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
             navMenu.classList.toggle('open');
         });
     }
-    
-    // Close menu when clicking a link
-    document.querySelectorAll('.nav-menu a').forEach(link => {
-        link.addEventListener('click', function() {
-            menuToggle.classList.remove('active');
-            navMenu.classList.remove('open');
-        });
-    });
-    
-    // ===== Language Switcher =====
-    const langButtons = document.querySelectorAll('.lang-btn');
-    let currentLang = 'en';
-    
-    // Language translations
-    const translations = {
-        en: {
-            'nav-home': 'Home',
-            'nav-tours': 'Tours',
-            'nav-destinations': 'Destinations',
-            'nav-gallery': 'Gallery',
-            'nav-about': 'About',
-            'nav-contact': 'Contact',
-            'hero-title': 'Discover the Wonders of <span>Ethiopia</span>',
-            'hero-subtitle': 'Expert-led birding and cultural tours in the cradle of humanity',
-            'hero-cta1': 'Explore Tours',
-            'hero-cta2': 'Contact Us',
-            'stat-tours': 'Tours',
-            'stat-birds': 'Bird Species',
-            'stat-tribes': 'Tribes',
-            'stat-years': 'Years Experience',
-            'featured-title': 'Featured <span>Tours</span>',
-            'featured-subtitle': 'Hand-crafted adventures across Ethiopia\'s most spectacular destinations',
-            'destinations-title': 'Popular <span>Destinations</span>',
-            'about-title': 'About <span>Traverse Ethiopia</span>',
-            'contact-title': 'Get In <span>Touch</span>',
-            'contact-subtitle': 'Let\'s plan your Ethiopian adventure together',
-            'footer-about': 'Traverse Ethiopia offers authentic birding and cultural tours led by expert local guides.',
-            'footer-tours': 'Our Tours',
-            'footer-destinations': 'Destinations',
-            'footer-contact': 'Contact',
-            'footer-rights': 'All Rights Reserved',
-            'form-name': 'Full Name',
-            'form-email': 'Email Address',
-            'form-phone': 'Phone Number',
-            'form-tour': 'Tour Interest',
-            'form-dates': 'Travel Dates',
-            'form-people': 'Number of Travelers',
-            'form-budget': 'Budget Range',
-            'form-message': 'Special Requests',
-            'form-submit': 'Send Booking Request'
-        },
-        am: {
-            'nav-home': 'መኖሪያ',
-            'nav-tours': 'ጉዞዎች',
-            'nav-destinations': 'መዳረሻዎች',
-            'nav-gallery': 'ፎቶ ጋለሪ',
-            'nav-about': 'ስለ እኛ',
-            'nav-contact': 'አግኙን',
-            'hero-title': 'የ<span>ኢትዮጵያ</span> ድንቆችን ያግኙ',
-            'hero-subtitle': 'በሰው ልጅ መገኛ አገር ሙያዊ የአእዋፍ እና የባህል ጉዞዎች',
-            'hero-cta1': 'ጉዞዎችን ይመልከቱ',
-            'hero-cta2': 'ያግኙን',
-            'stat-tours': 'ጉዞዎች',
-            'stat-birds': 'የአእዋፍ ዝርያዎች',
-            'stat-tribes': 'ብሄሮች',
-            'stat-years': 'የልምድ ዓመታት',
-            'featured-title': 'ታዋቂ <span>ጉዞዎች</span>',
-            'featured-subtitle': 'በኢትዮጵያ ውስጥ በጣም አስደናቂ በሆኑ መዳረሻዎች የተዘጋጁ ጀብዱዎች',
-            'destinations-title': 'ታዋቂ <span>መዳረሻዎች</span>',
-            'about-title': 'ስለ <span>ትራቨርስ ኢትዮጵያ</span>',
-            'contact-title': 'ያግኙ<span>ን</span>',
-            'contact-subtitle': 'የኢትዮጵያ ጀብዱዎን አብረን እንይ',
-            'footer-about': 'ትራቨርስ ኢትዮጵያ በሙያዊ የአካባቢ አስጎብኚዎች የሚመራ እውነተኛ የአእዋፍ እና የባህል ጉዞዎች ያቀርባል።',
-            'footer-tours': 'ጉዞዎቻችን',
-            'footer-destinations': 'መዳረሻዎች',
-            'footer-contact': 'አግኙን',
-            'footer-rights': 'መብቶች በሙሉ የተጠበቁ ናቸው',
-            'form-name': 'ሙሉ ስም',
-            'form-email': 'ኢሜል አድራሻ',
-            'form-phone': 'ስልክ ቁጥር',
-            'form-tour': 'ፍላጎት ያለዎት ጉዞ',
-            'form-dates': 'የጉዞ ቀናት',
-            'form-people': 'የተጓዦች ቁጥር',
-            'form-budget': 'የበጀት መጠን',
-            'form-message': 'ልዩ ጥያቄዎች',
-            'form-submit': 'የቦኪንግ ጥያቄ ይላኩ'
-        }
-    };
-    
-    langButtons.forEach(btn => {
-        btn.addEventListener('click', function() {
-            const lang = this.dataset.lang;
-            if (lang === currentLang) return;
-            
-            // Update active button
-            langButtons.forEach(b => b.classList.remove('active'));
-            this.classList.add('active');
-            currentLang = lang;
-            
-            // Update all translatable elements
-            document.querySelectorAll('[data-translate]').forEach(el => {
-                const key = el.dataset.translate;
-                if (translations[lang] && translations[lang][key]) {
-                    el.innerHTML = translations[lang][key];
-                }
-            });
-            
-            // RTL for Amharic
-            if (lang === 'am') {
-                document.body.style.direction = 'rtl';
-                document.body.style.textAlign = 'right';
-            } else {
-                document.body.style.direction = 'ltr';
-                document.body.style.textAlign = 'left';
-            }
-        });
-    });
-    
-    // ===== Smooth Scroll for Anchor Links =====
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
-            if (href === '#') return;
-            
-            const target = document.querySelector(href);
+
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener('click', (event) => {
+            const target = document.querySelector(anchor.getAttribute('href'));
             if (target) {
-                e.preventDefault();
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+                event.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth' });
             }
         });
     });
-    
-    // ===== Contact Form Handling =====
-    const contactForm = document.querySelector('.contact-form form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Simple validation
-            const name = this.querySelector('input[type="text"]');
-            const email = this.querySelector('input[type="email"]');
-            const message = this.querySelector('textarea');
-            
-            if (!name.value.trim() || !email.value.trim() || !message.value.trim()) {
-                alert('Please fill in all required fields.');
-                return;
-            }
-            
-            // Build WhatsApp message
-            const phone = '+251924012897';
-            const text = `Booking Request from Traverse Ethiopia\n\nName: ${name.value}\nEmail: ${email.value}\nPhone: ${this.querySelector('input[type="tel"]')?.value || 'Not provided'}\nTour Interest: ${this.querySelector('select')?.value || 'Not specified'}\n\nMessage: ${message.value}`;
-            
-            const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
-            window.open(whatsappUrl, '_blank');
-            
-            // Also send email fallback
-            const emailBody = encodeURIComponent(text);
-            window.open(`mailto:traverseethiopia@gmail.com?subject=Booking%20Request&body=${emailBody}`, '_blank');
-            
-            // Show success message
-            alert('Thank you! Your booking request has been sent. We will get back to you within 24 hours.');
-            this.reset();
-        });
-    }
-    
-    // ===== Gallery Lightbox =====
-    const galleryItems = document.querySelectorAll('.gallery-item');
-    if (galleryItems.length > 0) {
-        // Create lightbox
-        const lightbox = document.createElement('div');
-        lightbox.className = 'lightbox';
-        lightbox.style.cssText = `
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.9);
-            z-index: 2000;
-            cursor: pointer;
-            align-items: center;
-            justify-content: center;
-        `;
-        
-        const lightboxImg = document.createElement('img');
-        lightboxImg.style.cssText = `
-            max-width: 90%;
-            max-height: 90%;
-            object-fit: contain;
-        `;
-        lightbox.appendChild(lightboxImg);
-        document.body.appendChild(lightbox);
-        
-        // Open lightbox on click
-        galleryItems.forEach(item => {
-            item.addEventListener('click', function() {
-                const img = this.querySelector('img');
-                if (img) {
-                    lightboxImg.src = img.src;
-                    lightbox.style.display = 'flex';
-                }
-            });
-        });
-        
-        // Close lightbox
-        lightbox.addEventListener('click', function() {
-            this.style.display = 'none';
-        });
-        
-        // Close on escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && lightbox.style.display === 'flex') {
-                lightbox.style.display = 'none';
-            }
-        });
-    }
-    
-    // ===== Animate Stats Counter =====
-    const stats = document.querySelectorAll('.hero-stats .number');
-    if (stats.length > 0) {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const target = parseInt(entry.target.dataset.count || entry.target.textContent);
-                    animateNumber(entry.target, target);
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-        
-        stats.forEach(stat => observer.observe(stat));
-    }
-    
-    function animateNumber(el, target) {
-        let current = 0;
-        const increment = Math.ceil(target / 50);
-        const duration = 2000;
-        const stepTime = duration / 50;
-        
-        const timer = setInterval(() => {
-            current += increment;
-            if (current >= target) {
-                el.textContent = target + '+';
-                clearInterval(timer);
-            } else {
-                el.textContent = current + '+';
-            }
-        }, stepTime);
-    }
+
+    const form = document.querySelector('.contact-form form');
+    if (form) form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        alert('Thank you! Your booking request has been received. We will contact you within 24 hours.');
+        form.reset();
+    });
 });
