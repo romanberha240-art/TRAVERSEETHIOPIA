@@ -1,1 +1,1 @@
-module.exports = require('../lib/handlers');
+module.exports = require('../lib/handlers').healthHandler;
