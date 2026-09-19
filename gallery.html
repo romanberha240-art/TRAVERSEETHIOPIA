@@ -13,101 +13,23 @@
 <body>
   <header class="header scrolled" id="header">
     <div class="container">
-      <a href="index.html" class="logo">
-        <svg class="logo-mark" width="44" height="44" viewBox="0 0 44 44" role="img" aria-label="Traverse Ethiopia">
-          <circle cx="22" cy="22" r="22" fill="#7B2C2C"></circle>
-          <text x="22" y="28" text-anchor="middle" font-family="Playfair Display, Georgia, serif" font-size="16" font-weight="700" fill="#D4A843">TE</text>
-        </svg>
-        Traverse <span>Ethiopia</span>
-      </a>
-
-      <nav class="nav-menu" id="navMenu">
-        <a href="index.html">Home</a>
-        <a href="birding-tours.html">Tours</a>
-        <a href="destinations.html">Destinations</a>
-        <a href="gallery.html" class="active">Gallery</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-
-      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+      <a href="index.html" class="logo"><svg class="logo-mark" width="44" height="44" viewBox="0 0 44 44" role="img" aria-label="Traverse Ethiopia"><circle cx="22" cy="22" r="22" fill="#7B2C2C"></circle><text x="22" y="28" text-anchor="middle" font-family="Playfair Display, Georgia, serif" font-size="16" font-weight="700" fill="#D4A843">TE</text></svg>Traverse <span>Ethiopia</span></a>
+      <nav class="nav-menu" id="navMenu"><a href="index.html">Home</a><a href="birding-tours.html">Tours</a><a href="destinations.html">Destinations</a><a href="gallery.html" class="active">Gallery</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
     </div>
   </header>
-
-  <section class="page-hero">
-    <div class="container">
-      <h1>Travel <span>Gallery</span></h1>
-      <p>Moments from wildlife encounters, ancient heritage, mountain hikes, and unforgettable cultural experiences.</p>
+  <section class="page-hero"><div class="container"><h1>Travel <span>Gallery</span></h1><p>Moments from wildlife encounters, ancient heritage, mountain hikes, and unforgettable cultural experiences.</p></div></section>
+  <section class="gallery-page-section"><div class="container">
+    <div class="gallery-filters"><button class="filter-btn active" data-filter="all">All</button><button class="filter-btn" data-filter="Birding">Birding</button><button class="filter-btn" data-filter="Culture">Culture</button><button class="filter-btn" data-filter="Heritage">Heritage</button><button class="filter-btn" data-filter="Adventure">Adventure</button></div>
+    <div class="gallery-grid" id="galleryGrid">
+      <article class="gallery-item" data-category="Birding"><img src="https://upload.wikimedia.org/wikipedia/commons/b/bb/The_Sanetti_Plateau_in_the_Bale_Mountains%2C_Ethiopia.jpg" alt="Birding in Bale Mountains"><div class="gallery-overlay"><span>Birding</span><h3>Bale Mountains</h3></div></article>
+      <article class="gallery-item" data-category="Culture"><img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Hamar_woman.jpg" alt="Omo Valley culture"><div class="gallery-overlay"><span>Culture</span><h3>Omo Valley</h3></div></article>
+      <article class="gallery-item" data-category="Heritage"><img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&amp;q=80" alt="Lalibela heritage"><div class="gallery-overlay"><span>Heritage</span><h3>Lalibela</h3></div></article>
+      <article class="gallery-item" data-category="Adventure"><img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800&amp;q=80" alt="Danakil adventure"><div class="gallery-overlay"><span>Adventure</span><h3>Danakil</h3></div></article>
+      <article class="gallery-item" data-category="Birding"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800&amp;q=80" alt="Simien Mountains hiking"><div class="gallery-overlay"><span>Birding</span><h3>Simien</h3></div></article>
+      <article class="gallery-item" data-category="Culture"><img src="https://images.unsplash.com/photo-1523908511403-7fc7b25592f4?w=800&amp;q=80" alt="Addis Ababa city life"><div class="gallery-overlay"><span>Culture</span><h3>Addis</h3></div></article>
     </div>
-  </section>
-
-  <section class="gallery-page-section">
-    <div class="container">
-      <div class="gallery-filters">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="Birding">Birding</button>
-        <button class="filter-btn" data-filter="Culture">Culture</button>
-        <button class="filter-btn" data-filter="Heritage">Heritage</button>
-        <button class="filter-btn" data-filter="Adventure">Adventure</button>
-      </div>
-
-      <div class="gallery-grid" id="galleryGrid">
-        <article class="gallery-item" data-category="Birding">
-          <img src="https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0?w=800&q=80" alt="Birding in Bale Mountains" />
-          <div class="gallery-overlay">
-            <span>Birding</span>
-            <h3>Bale Mountains</h3>
-          </div>
-        </article>
-
-        <article class="gallery-item" data-category="Culture">
-          <img src="https://images.unsplash.com/photo-1533106418989-88406c7cc8ca?w=800&q=80" alt="Omo Valley culture" />
-          <div class="gallery-overlay">
-            <span>Culture</span>
-            <h3>Omo Valley</h3>
-          </div>
-        </article>
-
-        <article class="gallery-item" data-category="Heritage">
-          <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&q=80" alt="Lalibela heritage" />
-          <div class="gallery-overlay">
-            <span>Heritage</span>
-            <h3>Lalibela</h3>
-          </div>
-        </article>
-
-        <article class="gallery-item" data-category="Adventure">
-          <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800&q=80" alt="Danakil adventure" />
-          <div class="gallery-overlay">
-            <span>Adventure</span>
-            <h3>Danakil</h3>
-          </div>
-        </article>
-
-        <article class="gallery-item" data-category="Birding">
-          <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800&q=80" alt="Simien Mountains hiking" />
-          <div class="gallery-overlay">
-            <span>Birding</span>
-            <h3>Simien</h3>
-          </div>
-        </article>
-
-        <article class="gallery-item" data-category="Culture">
-          <img src="https://images.unsplash.com/photo-1523908511403-7fc7b25592f4?w=800&q=80" alt="Addis Ababa city life" />
-          <div class="gallery-overlay">
-            <span>Culture</span>
-            <h3>Addis</h3>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <script src="js/main.js"></script>
-  <script src="js/gallery-v2.js"></script>
+  </div></section>
+  <script src="js/main.js"></script><script src="js/gallery-v2.js"></script>
 </body>
 </html>

@@ -1,29 +1,25 @@
 // ============================================
 // TRAVERSE ETHIOPIA TOURS - MAIN JAVASCRIPT
-// Verified Ethiopia image sources and site interactions
+// Ethiopia image replacement and site interactions
 // ============================================
 
-// These are real photographs from Wikimedia Commons. Keep the source-page
-// links in the imageCredits object so the photographer and licence can be
-// credited wherever the images are displayed.
+// Wikimedia Commons file URLs are used for the Ethiopia-specific images.
+// The fallback URLs ensure the cards never remain blank if Commons is
+// temporarily unavailable or a file is renamed.
 const ETHIOPIA_IMAGES = {
     bale: 'https://upload.wikimedia.org/wikipedia/commons/b/bb/The_Sanetti_Plateau_in_the_Bale_Mountains%2C_Ethiopia.jpg',
-    baleForest: 'https://upload.wikimedia.org/wikipedia/commons/d/dc/Bale_Mountains_Harena_Forest.JPG',
     omo: 'https://upload.wikimedia.org/wikipedia/commons/0/0c/Hamar_woman.jpg',
-    mursi: 'https://upload.wikimedia.org/wikipedia/commons/3/3d/Mursi_woman.jpg',
-    karo: 'https://upload.wikimedia.org/wikipedia/commons/7/7d/Omo_Karo_Bodik_boy_smile.jpg',
-    lalibela: 'https://upload.wikimedia.org/wikipedia/commons/8/8d/Bete_Giyorgis%2C_Lalibela%2C_Ethiopia.jpg',
-    danakil: 'https://upload.wikimedia.org/wikipedia/commons/2/2c/Danakil_Depression_Ethiopia.jpg',
-    simien: 'https://upload.wikimedia.org/wikipedia/commons/5/5e/Simien_Mountains%2C_Ethiopia.jpg',
-    addis: 'https://upload.wikimedia.org/wikipedia/commons/5/5f/Addis_Ababa%2C_Ethiopia.jpg'
+    lalibela: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1200&q=80',
+    danakil: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=1200&q=80',
+    simien: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1200&q=80',
+    addis: 'https://images.unsplash.com/photo-1523908511403-7fc7b25592f4?w=1200&q=80',
+    fallback: 'https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0?w=1200&q=80'
 };
 
 function imageFor(alt) {
     const text = (alt || '').toLowerCase();
-    // Check specific destinations before broad category words such as birding.
     if (text.includes('bale')) return ETHIOPIA_IMAGES.bale;
-    if (text.includes('mursi')) return ETHIOPIA_IMAGES.mursi;
-    if (text.includes('omo') || text.includes('hamer') || text.includes('tribe') || text.includes('culture')) return ETHIOPIA_IMAGES.omo;
+    if (text.includes('mursi') || text.includes('omo') || text.includes('hamer') || text.includes('tribe') || text.includes('culture')) return ETHIOPIA_IMAGES.omo;
     if (text.includes('lalibela') || text.includes('church')) return ETHIOPIA_IMAGES.lalibela;
     if (text.includes('simien') || text.includes('mountain')) return ETHIOPIA_IMAGES.simien;
     if (text.includes('danakil')) return ETHIOPIA_IMAGES.danakil;
@@ -31,14 +27,23 @@ function imageFor(alt) {
     return null;
 }
 
+function makeImageReliable(img, replacement) {
+    if (!replacement) return;
+    img.onerror = function () {
+        // Prevent a failed remote image from leaving a blank gallery card.
+        if (img.src !== ETHIOPIA_IMAGES.fallback) {
+            img.onerror = null;
+            img.src = ETHIOPIA_IMAGES.fallback;
+        }
+    };
+    img.src = replacement;
+    img.removeAttribute('srcset');
+    img.loading = img.loading || 'lazy';
+}
+
 function useRealEthiopiaImages() {
     document.querySelectorAll('img').forEach((img) => {
-        const replacement = imageFor(img.alt);
-        if (replacement) {
-            img.src = replacement;
-            img.removeAttribute('srcset');
-            img.loading = img.loading || 'lazy';
-        }
+        makeImageReliable(img, imageFor(img.alt));
     });
 }
 
