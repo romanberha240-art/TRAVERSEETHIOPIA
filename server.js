@@ -13,6 +13,12 @@ const mimeTypes = {
   '.webp': 'image/webp', '.ico': 'image/x-icon'
 };
 
+function applyCors(res) {
+  res.setHeader('Access-Control-Allow-Origin', process.env.FRONTEND_ORIGIN || '*');
+  res.setHeader('Vary', 'Origin');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,HEAD,OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+}
 function sendFile(res, filePath, headOnly = false) {
   fs.stat(filePath, (error, stats) => {
     if (error || !stats.isFile()) return res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' }).end('Not found');
@@ -21,7 +27,6 @@ function sendFile(res, filePath, headOnly = false) {
     fs.createReadStream(filePath).on('error', () => res.destroy()).pipe(res);
   });
 }
-
 function resolveRequestPath(pathname) {
   let cleanPath;
   try { cleanPath = decodeURIComponent(pathname || '/'); } catch (_) { return null; }
@@ -31,11 +36,10 @@ function resolveRequestPath(pathname) {
   if (!path.extname(candidate) && fs.existsSync(`${candidate}.html`)) return `${candidate}.html`;
   return candidate;
 }
-
 const server = http.createServer(async (req, res) => {
   let url;
   try { url = new URL(req.url, `http://${req.headers.host || 'localhost'}`); } catch (_) { return res.writeHead(400).end('Bad request'); }
-  if (req.method === 'OPTIONS') return res.writeHead(204, { 'Access-Control-Allow-Methods': 'GET,POST,PUT,DELETE,HEAD,OPTIONS', 'Access-Control-Allow-Headers': 'Content-Type, Authorization' }).end();
+  if (req.method === 'OPTIONS') { applyCors(res); return res.writeHead(204).end(); }
   if (url.pathname === '/api/health' && ['GET', 'HEAD'].includes(req.method)) return healthHandler(req, res);
   if (url.pathname === '/api/gallery' && ['GET', 'HEAD'].includes(req.method)) return galleryHandler(req, res);
   if (url.pathname === '/api/content' && ['GET', 'HEAD'].includes(req.method)) return contentHandler(req, res, url.searchParams);
@@ -48,5 +52,4 @@ const server = http.createServer(async (req, res) => {
   if (!filePath) return res.writeHead(403, { 'Content-Type': 'text/plain; charset=utf-8' }).end('Forbidden');
   return sendFile(res, filePath, req.method === 'HEAD');
 });
-
 server.listen(port, '0.0.0.0', () => console.log(`Traverse Ethiopia server running on http://localhost:${port}`));
