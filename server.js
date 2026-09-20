@@ -2,11 +2,16 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 const { URL } = require('url');
-const { healthHandler, galleryHandler, inquiryHandler } = require('./lib/handlers');
+const { healthHandler, galleryHandler, inquiryHandler, contentHandler, adminLoginHandler, adminContentHandler } = require('./lib/handlers');
 
 const port = Number(process.env.PORT) || 3000;
 const rootDir = path.resolve(__dirname);
-const mimeTypes = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'application/javascript; charset=utf-8', '.json': 'application/json; charset=utf-8', '.svg': 'image/svg+xml', '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.gif': 'image/gif', '.ico': 'image/x-icon', '.webp': 'image/webp', '.txt': 'text/plain; charset=utf-8', '.woff': 'font/woff', '.woff2': 'font/woff2', '.ttf': 'font/ttf' };
+const mimeTypes = {
+  '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8',
+  '.js': 'application/javascript; charset=utf-8', '.json': 'application/json; charset=utf-8',
+  '.svg': 'image/svg+xml', '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg',
+  '.webp': 'image/webp', '.ico': 'image/x-icon'
+};
 
 function sendFile(res, filePath, headOnly = false) {
   fs.stat(filePath, (error, stats) => {
@@ -30,11 +35,15 @@ function resolveRequestPath(pathname) {
 const server = http.createServer(async (req, res) => {
   let url;
   try { url = new URL(req.url, `http://${req.headers.host || 'localhost'}`); } catch (_) { return res.writeHead(400).end('Bad request'); }
-  if (req.method === 'OPTIONS') return res.writeHead(204, { 'Access-Control-Allow-Methods': 'GET,POST,HEAD,OPTIONS', 'Access-Control-Allow-Headers': 'Content-Type' }).end();
-  if (url.pathname === '/api/health' && (req.method === 'GET' || req.method === 'HEAD')) return healthHandler(req, res);
-  if (url.pathname === '/api/gallery' && (req.method === 'GET' || req.method === 'HEAD')) return galleryHandler(req, res);
+  if (req.method === 'OPTIONS') return res.writeHead(204, { 'Access-Control-Allow-Methods': 'GET,POST,PUT,DELETE,HEAD,OPTIONS', 'Access-Control-Allow-Headers': 'Content-Type, Authorization' }).end();
+  if (url.pathname === '/api/health' && ['GET', 'HEAD'].includes(req.method)) return healthHandler(req, res);
+  if (url.pathname === '/api/gallery' && ['GET', 'HEAD'].includes(req.method)) return galleryHandler(req, res);
+  if (url.pathname === '/api/content' && ['GET', 'HEAD'].includes(req.method)) return contentHandler(req, res, url.searchParams);
   if (url.pathname === '/api/inquiry' && req.method === 'POST') return inquiryHandler(req, res);
-  if (!['GET', 'HEAD'].includes(req.method)) return res.writeHead(405, { Allow: 'GET, HEAD, OPTIONS' }).end('Method not allowed');
+  if (url.pathname === '/api/admin/login' && req.method === 'POST') return adminLoginHandler(req, res);
+  if (url.pathname === '/api/admin/content' && ['GET', 'POST'].includes(req.method)) return adminContentHandler(req, res, url.searchParams);
+  if (url.pathname.startsWith('/api/admin/content/') && ['PUT', 'DELETE'].includes(req.method)) return adminContentHandler(req, res, url.searchParams, url.pathname.split('/').pop());
+  if (!['GET', 'HEAD'].includes(req.method)) return res.writeHead(405, { Allow: 'GET, HEAD, POST, PUT, DELETE, OPTIONS' }).end('Method not allowed');
   const filePath = resolveRequestPath(url.pathname);
   if (!filePath) return res.writeHead(403, { 'Content-Type': 'text/plain; charset=utf-8' }).end('Forbidden');
   return sendFile(res, filePath, req.method === 'HEAD');
