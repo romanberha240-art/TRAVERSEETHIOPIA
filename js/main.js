@@ -30,9 +30,14 @@ function imageFor(alt) {
 }
 
 function makeImageReliable(img, replacement) {
-    const isRemoteStockImage = /unsplash\.com|pravatar\.cc/i.test(img.src);
-    const source = replacement || (isRemoteStockImage ? ETHIOPIA_IMAGES.fallback : null);
-    if (!source) return;
+    if (!img || !img.tagName || img.tagName.toLowerCase() !== 'img') return;
+
+    const source = replacement || ETHIOPIA_IMAGES.fallback;
+    const hasRemoteFallback = /unsplash\.com|pravatar\.cc|wikimedia\.org/i.test(img.src || '');
+
+    if (!img.src || img.src === window.location.href) {
+        img.src = source;
+    }
 
     img.onerror = function () {
         if (img.src !== ETHIOPIA_IMAGES.fallback) {
@@ -40,13 +45,27 @@ function makeImageReliable(img, replacement) {
             img.src = ETHIOPIA_IMAGES.fallback;
         }
     };
-    img.src = source;
+
+    if (hasRemoteFallback || !img.getAttribute('src') || img.getAttribute('src') === '') {
+        img.src = source;
+    }
+
     img.removeAttribute('srcset');
     img.loading = img.loading || 'lazy';
 }
 
 function useRealEthiopiaImages() {
-    document.querySelectorAll('img').forEach((img) => {
-        makeImageReliable(img, imageFor(img.alt));
+    const images = document.querySelectorAll('img');
+    images.forEach((img) => {
+        const replacement = imageFor(img.alt || img.getAttribute('data-alt') || '');
+        if (replacement) {
+            makeImageReliable(img, replacement);
+        }
     });
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', useRealEthiopiaImages);
+} else {
+    useRealEthiopiaImages();
 }
