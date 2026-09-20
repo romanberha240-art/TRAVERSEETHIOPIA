@@ -1,3 +1,2 @@
-// Set this to your Railway public URL before deploying to Vercel.
-// Example: window.TRAVERSE_API_URL = 'https://traverse-ethiopia-production.up.railway.app';
-window.TRAVERSE_API_URL = window.TRAVERSE_API_URL || '';
+// Railway production API used by the Vercel frontend.
+window.TRAVERSE_API_URL = 'https://traverseethiopia-production-91e0.up.railway.app';
