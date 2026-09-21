@@ -4,8 +4,14 @@ services:
     env: node
     plan: free
     buildCommand: npm install
-    startCommand: node server.js
+    startCommand: npm start
     healthCheckPath: /api/health
     envVars:
       - key: NODE_ENV
         value: production
+      - key: SUPABASE_URL
+        value: https://xyiatlqiwtxadrmvvyzn.supabase.co
+      - key: FRONTEND_ORIGIN
+        value: https://traverseethiopia.vercel.app
+      # Add SUPABASE_SERVICE_ROLE_KEY and strong ADMIN_USERNAME/ADMIN_PASSWORD
+      # as encrypted environment variables in the Render dashboard.

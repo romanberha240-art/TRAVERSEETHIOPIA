@@ -3,6 +3,17 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "headers": [
-    { "source": "/admin.html", "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }] }
+    {
+      "source": "/admin.html",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://traverseethiopia.onrender.com/api/:path*"
+    }
   ]
 }
